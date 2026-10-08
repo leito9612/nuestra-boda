@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#6c1d2d">
+<meta name="description" content="Estás invitado a nuestra boda. Abre tu invitación.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://leito9612.github.io/nuestra-boda/">
+<meta property="og:title" content="¡Nos casamos!">
+<meta property="og:description" content="Estás invitado a nuestra boda. Toca para abrir tu invitación.">
+<meta property="og:image" content="https://leito9612.github.io/nuestra-boda/vista-previa.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif;background:#faf9f7}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Valeria &amp; Andrés</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Playfair+Display:wght@700&display=swap">
+<style>
+:root{
+  /* Layout: one column of stationery (max 440px), pieces collaged left and right like an invitation suite laid on paper */
+  --paper:#f1ece5;
+  --card:#fdfbf8;
+  --wine:#6c1d2d;
+  --wine-deep:#541423;
+  --on-wine:#f7ede8;
+  --ink:#2d2124;
+  --muted:#75666a;
+  --tile:#eee8e3;
+  --script:"Pinyon Script","Snell Roundhand","Apple Chancery",cursive;
+  --serif:"Cormorant Garamond","EB Garamond",Garamond,Georgia,serif;
+  --display:"Playfair Display",Didot,"Bodoni 72",Georgia,serif;
+  --lift:0 16px 28px -14px rgba(70,30,35,.45);
+}
+html{background:var(--paper)}
+body{
+  background-color:var(--paper);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .32 0 0 0 0 .26 0 0 0 0 .22 .32 0 0 0 -.09'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='900'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='.006' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .55 0 0 0 0 .47 0 0 0 0 .42 .22 0 0 0 -.07'/></filter><rect width='100%' height='100%' filter='url(%23m)'/></svg>");
+  color:var(--ink);
+  font:500 17px/1.55 var(--serif);
+  padding-inline:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:440px;margin-inline:auto;padding-block:20px 80px;display:flex;flex-direction:column;gap:72px;overflow-x:clip}
+p,h1,h2,h3{margin:0}
+.svg-defs{position:absolute;width:0;height:0;overflow:hidden}
+
+/* draft ribbon */
+.draft{font:600 12px/1.45 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--wine);border:1px dashed rgba(108,29,45,.45);padding:8px 12px;text-align:center}
+
+/* shared type */
+.title{font:600 19px/1.2 var(--serif);text-transform:uppercase;letter-spacing:.1em;text-wrap:balance}
+.cap{font-family:var(--script);font-size:2.3em;font-weight:400;text-transform:none;letter-spacing:0;line-height:0;vertical-align:-.18em;margin-right:-.06em}
+.caps{text-transform:uppercase;letter-spacing:.07em}
+
+/* hero */
+.hero-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
+.kicker{font:400 50px/1.1 var(--script);color:var(--wine)}
+.hero{position:relative;width:100%;max-width:380px;aspect-ratio:300/350}
+.hero .callas{position:absolute;left:8%;top:0;width:84%;z-index:1}
+.env-back{position:absolute;inset:48% 0 0 0;background:linear-gradient(#5d1727,#4a1020);border-radius:3px;z-index:2;box-shadow:var(--lift)}
+.env-back::before{content:"";position:absolute;inset:0;background:linear-gradient(#ebdcd4,#d8c1b8);clip-path:polygon(3% 0,97% 0,50% 60%)}
+.photo{position:absolute;left:19%;top:28%;width:60%;z-index:3;background:#fff;padding:7px 7px 30px;box-shadow:0 8px 16px -6px rgba(40,20,20,.35);transform:rotate(-5deg)}
+.photo-img{aspect-ratio:1.2;display:grid;place-items:center;background:
+  radial-gradient(120% 70% at 30% 100%,#3a3a3a 0 35%,transparent 36%),
+  radial-gradient(90% 60% at 85% 100%,#555 0 30%,transparent 31%),
+  linear-gradient(#d9d9d9,#9c9c9c 62%,#6e6e6e)}
+.photo-img span{font:600 11px/1 var(--serif);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.photo-cap{position:absolute;left:0;right:0;bottom:2px;text-align:center;font:400 20px/1.2 var(--script);color:#4b4446}
+.env-front{position:absolute;left:0;bottom:0;width:100%;height:52%;z-index:4;display:block}
+.hero .seal{position:absolute;left:50%;top:76%;width:21%;transform:translate(-50%,-50%);z-index:5}
+.hero .posy{position:absolute;right:-5%;bottom:-12%;width:36%;z-index:6}
+.seal{filter:drop-shadow(0 3px 3px rgba(60,35,20,.35));display:block;overflow:visible}
+
+/* music */
+.player{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.player p{font:500 22px/1.3 var(--serif);text-wrap:balance}
+.track{width:min(210px,70%);height:2px;background:rgba(45,33,36,.22);position:relative}
+.track span{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ink)}
+.track span::after{content:"";position:absolute;right:-4px;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.play{width:48px;height:48px;border-radius:50%;border:0;background:var(--ink);color:var(--paper);display:grid;place-items:center;cursor:pointer}
+.play svg{width:22px;height:22px}
+.play:focus-visible,.gift-btn:focus-visible,.confirm:focus-visible,.pill:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.player .note,.note{font:italic 500 15px/1.4 var(--serif);color:var(--muted)}
+.player .song-title{font:italic 500 18px/1.3 var(--serif);color:var(--wine);margin-top:-6px}
+
+/* invitation + venue */
+.suite{position:relative;display:flex;flex-direction:column}
+.invite-frame{width:82%;background:var(--wine);padding:12px;box-shadow:var(--lift);position:relative;z-index:1}
+.invite{background:var(--card);padding:36px 16px 96px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;outline:1px solid rgba(108,29,45,.2);outline-offset:-8px}
+.eyebrow{font:600 13px/1.65 var(--serif);letter-spacing:.14em;text-transform:uppercase;text-wrap:balance}
+.names{font:400 clamp(46px,14vw,60px)/1.15 var(--script);color:var(--ink);margin-top:6px}
+.amp{font:400 36px/1 var(--script);color:var(--wine)}
+.date{font-weight:600;font-size:18px;margin-top:14px}
+.place{font-size:14px;letter-spacing:.08em;color:var(--muted)}
+.venue{align-self:flex-end;width:70%;margin-top:-76px;position:relative;z-index:2;background:var(--wine);color:var(--on-wine);padding:26px 18px 24px;text-align:center;box-shadow:var(--lift);display:flex;flex-direction:column;align-items:center;gap:6px}
+.venue .title{font-size:17px}
+.pill{display:inline-block;margin-block:6px;border:1px solid currentColor;border-radius:999px;padding:5px 18px 4px;color:inherit;text-decoration:none;font:600 13px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase}
+.pill:hover{background:rgba(255,255,255,.1)}
+.suite .posy{position:absolute;left:2%;bottom:-54px;width:30%;z-index:3}
+
+/* itinerary */
+.itin{width:90%;background:var(--card);box-shadow:var(--lift);padding:30px 22px 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.sched{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:19px;font-variant-numeric:tabular-nums}
+.sched li{display:grid;grid-template-columns:6.4em 1fr;text-align:left;gap:10px}
+.sched time{color:var(--wine);font-weight:600}
+.itin .lying{width:92%;display:block;margin-top:-4px}
+
+/* dress code */
+.dress{position:relative;display:flex;justify-content:center;padding-top:10px}
+.dress .polaroid{position:absolute;right:0;top:-6px;width:46%;background:#fff;padding:6px 6px 24px;box-shadow:0 8px 16px -8px rgba(40,20,20,.4);transform:rotate(8deg);z-index:1}
+.dress .polaroid .photo-img{aspect-ratio:1}
+.dress-card{position:relative;z-index:2;width:72%;background:var(--wine);color:var(--on-wine);padding:30px 18px 24px;text-align:center;box-shadow:var(--lift);display:flex;flex-direction:column;align-items:center;gap:10px;margin-right:12%}
+.dress-card p{font-size:15px;line-height:1.5}
+.clip{position:absolute;top:-16px;left:20px;width:16px;height:46px}
+.swatches{display:flex;gap:10px;justify-content:center;list-style:none;margin:2px 0 0;padding:0}
+.swatch{width:18px;height:24px;border-radius:50% 50% 50% 50%/42% 42% 58% 58%;box-shadow:inset 0 -3px 4px rgba(0,0,0,.12)}
+.small{font-size:13px;letter-spacing:.06em;opacity:.85}
+
+/* quote */
+.quote{text-align:center;font:500 20px/1.5 var(--serif);text-transform:uppercase;letter-spacing:.05em;max-width:27ch;margin-inline:auto;text-wrap:balance}
+
+/* gifts */
+.gifts{position:relative;display:flex;flex-direction:column;padding-top:28px}
+.gift-card{position:relative;width:84%;background:var(--card);box-shadow:var(--lift);padding:46px 22px 30px;font:500 15px/1.6 var(--serif);text-transform:uppercase;letter-spacing:.06em;text-align:justify;hyphens:auto}
+.gift-card .seal{position:absolute;top:-30px;left:50%;width:64px;transform:translateX(-50%)}
+.gift-card .cap{font-size:2.4em;vertical-align:-.2em;margin-right:.04em}
+.gift-row{display:flex;justify-content:flex-end;align-items:flex-end;margin-top:-44px;position:relative}
+.gift-row .callas-side{position:absolute;left:0;bottom:30px;width:42%;z-index:1}
+.gift-btn{position:relative;z-index:2;width:min(46%,190px);aspect-ratio:1;border-radius:50%;border:0;background:var(--wine);color:var(--on-wine);box-shadow:0 18px 30px -12px rgba(70,30,35,.55);cursor:pointer;font:600 19px/1 var(--serif);letter-spacing:.08em;text-transform:uppercase;margin-right:3%}
+.gift-btn .cap{font-size:2.8em}
+.gift-btn small{display:block;font:italic 500 13px/1 var(--serif);letter-spacing:.04em;text-transform:none;margin-top:10px;opacity:.85}
+.gift-detail{margin-top:20px;background:var(--card);box-shadow:var(--lift);padding:20px 22px;text-align:center;font-size:17px}
+.gift-detail strong{display:block;font:600 14px/1.4 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--wine);margin-bottom:4px}
+
+/* countdown */
+.countdown{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.faltan{font:400 56px/1.1 var(--script);color:var(--ink)}
+.clock{display:flex;justify-content:center;gap:clamp(18px,7vw,34px)}
+.unit strong{display:block;font:700 clamp(44px,13vw,58px)/1 var(--display);font-variant-numeric:tabular-nums;color:var(--ink)}
+.unit span{display:block;margin-top:6px;font:600 11px/1 var(--serif);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.gran{font:500 21px/1.3 var(--serif);text-transform:uppercase;letter-spacing:.07em;margin-top:6px}
+
+/* rsvp */
+.rsvp{display:flex;flex-direction:column;align-items:center;gap:30px}
+.rsvp-stage{position:relative;width:100%;padding-top:170px}
+.rsvp-stage .callas{position:absolute;top:0;left:50%;width:64%;transform:translateX(-50%);z-index:0}
+.rsvp-env{position:relative}
+.rsvp-back{position:absolute;left:0;right:0;bottom:0;top:34%;background:linear-gradient(#5d1727,#4a1020);border-radius:3px;z-index:1;box-shadow:var(--lift)}
+.rsvp-card{position:relative;z-index:2;margin-inline:7%;background:var(--card);padding:28px 20px 168px;display:flex;flex-direction:column;gap:16px;outline:1px solid rgba(108,29,45,.2);outline-offset:-8px;box-shadow:0 0 0 10px var(--wine)}
+.rsvp-card .title{text-align:center;font-size:17px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label,.rsvp-card legend{font:600 14px/1.35 var(--serif);letter-spacing:.04em}
+.rsvp-card input[type=text],.rsvp-card select{font:500 17px/1.3 var(--serif);color:var(--ink);background:#f7f3ef;border:1px solid #d8cdc7;border-radius:2px;padding:10px 12px;width:100%;box-sizing:border-box}
+.rsvp-card input[type=text]:focus-visible,.rsvp-card select:focus-visible{outline:2px solid var(--wine);outline-offset:1px}
+.rsvp-card fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.rsvp-card legend{padding:0;margin-bottom:8px}
+.vh{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.opt{display:block;padding:12px 14px;background:var(--tile);border:1px solid transparent;font-size:16px;line-height:1.35;cursor:pointer}
+.vh:checked + .opt{border-color:var(--wine);background:#f6eaeb;color:var(--wine);font-weight:600}
+.vh:focus-visible + .opt{outline:2px solid var(--wine);outline-offset:2px}
+.confirm{font:600 14px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;background:var(--wine);color:var(--on-wine);border:0;border-radius:999px;padding:14px 18px;cursor:pointer}
+.confirm:hover{background:var(--wine-deep)}
+.status{font:italic 500 14px/1.45 var(--serif);color:var(--muted);text-align:center}
+.status.err{color:#9b1c2e;font-style:normal;font-weight:600}
+.preview-msg{background:#f3eee9;border-left:2px solid var(--wine);padding:10px 12px;font-size:15px;line-height:1.45}
+.preview-msg a{color:var(--wine);font-weight:600}
+.rsvp-front{position:absolute;left:0;bottom:0;width:100%;height:150px;z-index:3;display:block}
+.rsvp-env .seal{position:absolute;left:50%;bottom:76px;width:66px;transform:translate(-50%,50%);z-index:4}
+.closing{text-align:center;font:500 18px/1.55 var(--serif);text-transform:uppercase;letter-spacing:.06em;max-width:30ch;text-wrap:balance}
+.sign{font:400 44px/1.1 var(--script);color:var(--wine);text-align:center}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero .photo{animation:rise 1.6s cubic-bezier(.2,.7,.2,1) .2s both}
+  @keyframes rise{from{transform:translateY(16%) rotate(-5deg)}to{transform:translateY(0) rotate(-5deg)}}
+  .sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 7s ease-in-out infinite alternate}
+  .sway.b{animation-duration:8.5s;animation-delay:-2s}
+  .sway.c{animation-duration:6.2s;animation-delay:-4s}
+  @keyframes sway{from{transform:rotate(-1.4deg)}to{transform:rotate(1.4deg)}}
+}
+</style>
+
+<!-- shared drawings: calla lily, rose, posy, wax seal -->
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="spathe" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#fbfaf3"/><stop offset=".82" stop-color="#e5e9cf"/><stop offset="1" stop-color="#aebf86"/>
+    </linearGradient>
+    <linearGradient id="throat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1eee2"/><stop offset="1" stop-color="#d6d7bd"/>
+    </linearGradient>
+    <linearGradient id="spadix" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8d95e"/><stop offset="1" stop-color="#e0a62a"/>
+    </linearGradient>
+    <linearGradient id="stem" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5d7a39"/><stop offset=".5" stop-color="#86a35a"/><stop offset="1" stop-color="#5d7a39"/>
+    </linearGradient>
+    <radialGradient id="sealFace" cx=".38" cy=".34" r=".78">
+      <stop offset="0" stop-color="#fbf6e8"/><stop offset=".6" stop-color="#eadcbc"/><stop offset="1" stop-color="#cbb586"/>
+    </radialGradient>
+    <radialGradient id="sealInner" cx=".6" cy=".64" r=".7">
+      <stop offset="0" stop-color="#f4eacf"/><stop offset="1" stop-color="#d9c79a"/>
+    </radialGradient>
+    <radialGradient id="roseShade">
+      <stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#1a0006" stop-opacity=".32"/>
+    </radialGradient>
+    <linearGradient id="flapL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c2437"/><stop offset="1" stop-color="#6a1b2c"/></linearGradient>
+    <linearGradient id="flapR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#7c2437"/><stop offset="1" stop-color="#6a1b2c"/></linearGradient>
+    <linearGradient id="flapB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#76213a"/><stop offset="1" stop-color="#5c1626"/></linearGradient>
+    <filter id="wobble" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency=".07" numOctaves="2" seed="4"/>
+      <feDisplacementMap in="SourceGraphic" scale="7"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2.5" stdDeviation="2.2" flood-color="#3b2a20" flood-opacity=".2"/>
+    </filter>
+
+    <g id="calla" filter="url(#soft)">
+      <path d="M40,126 C42,170 46,215 44,260" stroke="url(#stem)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+      <path d="M40,128 C34,112 26,92 22,72 C18,52 20,34 30,22 C40,10 58,4 86,2 C76,10 70,20 68,34 C66,56 56,96 40,128 Z" fill="url(#spathe)" stroke="#d6d9c2" stroke-width=".8"/>
+      <path d="M27,44 C30,30 44,18 70,12 C64,22 58,36 50,50 C42,58 30,56 27,44 Z" fill="url(#throat)"/>
+      <ellipse cx="45" cy="41" rx="3.4" ry="13" transform="rotate(28 45 41)" fill="url(#spadix)"/>
+      <path d="M22,72 C18,52 20,34 30,22 C34,18 38,15 43,13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      <path d="M30,60 C36,78 40,100 40,124" fill="none" stroke="#c4cba8" stroke-width="1"/>
+    </g>
+
+    <g id="rose">
+      <circle r="18"/>
+      <path d="M-15,-3 C-14,-13 -3,-17 6,-14" fill="none" stroke="#1a0006" stroke-opacity=".3" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M9,-12 C15,-8 17,0 14,7" fill="none" stroke="#1a0006" stroke-opacity=".3" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M-14,5 C-11,14 10,15 13,6" fill="none" stroke="#1a0006" stroke-opacity=".3" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M-9,1 C-8,9 7,9 9,1" fill="none" stroke="#1a0006" stroke-opacity=".32" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M-8,-4 C-6,-10 4,-11 8,-5" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M-3,-1 C-2,3 3,3 4,-1 C3,-4 -1,-4 -2,-2" fill="none" stroke="#1a0006" stroke-opacity=".38" stroke-width="1.2" stroke-linecap="round"/>
+      <circle r="18" fill="url(#roseShade)"/>
+    </g>
+
+    <g id="posy">
+      <g fill="none" stroke-linecap="round" stroke-dasharray=".1 4.4">
+        <path d="M52,70 C48,100 56,130 47,166" stroke="#5a1222" stroke-width="3.6"/>
+        <path d="M68,72 C73,98 64,120 71,150" stroke="#6e1a2c" stroke-width="3.2"/>
+        <path d="M60,74 C60,96 62,112 57,136" stroke="#7d2a3c" stroke-width="2.8"/>
+        <path d="M44,66 C34,88 40,104 33,124" stroke="#5a1222" stroke-width="2.6"/>
+      </g>
+      <g fill="#6f805b">
+        <ellipse cx="26" cy="42" rx="15" ry="5" transform="rotate(-32 26 42)"/>
+        <ellipse cx="92" cy="36" rx="15" ry="5" transform="rotate(26 92 36)"/>
+        <ellipse cx="18" cy="72" rx="13" ry="4.5" transform="rotate(18 18 72)"/>
+        <ellipse cx="102" cy="68" rx="13" ry="4.5" transform="rotate(-16 102 68)"/>
+        <ellipse cx="62" cy="14" rx="11" ry="4" transform="rotate(-78 62 14)"/>
+      </g>
+      <g fill="#93a383"><circle cx="12" cy="54" r="5"/><circle cx="108" cy="50" r="5"/><circle cx="40" cy="16" r="4"/><circle cx="86" cy="16" r="3.5"/></g>
+      <use href="#rose" transform="translate(36,58) scale(.85)" fill="#d6a7a2"/>
+      <use href="#rose" transform="translate(84,56) scale(.82)" fill="#efe3d8"/>
+      <use href="#rose" transform="translate(62,28) scale(.62)" fill="#c58d8e"/>
+      <use href="#rose" transform="translate(60,52) scale(1.12)" fill="#6c1a2c"/>
+      <circle cx="22" cy="36" r="5" fill="#6c1a2c"/><circle cx="98" cy="40" r="4.2" fill="#7d2a3c"/>
+    </g>
+
+    <g id="seal">
+      <circle r="44" fill="url(#sealFace)" filter="url(#wobble)"/>
+      <circle r="31" fill="url(#sealInner)" stroke="#c2ab7a" stroke-width="2.2"/>
+      <circle r="26.5" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1"/>
+      <text class="seal-text" x=".7" y="9.7" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="25" fill="#fff" fill-opacity=".6">V&amp;A</text>
+      <text class="seal-text" y="9" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="25" fill="#ae955c">V&amp;A</text>
+    </g>
+  </defs>
+</svg>
+
+<main class="page">
+  <p class="draft">Borrador · nombres, fechas y lugares de ejemplo</p>
+
+  <header class="hero-wrap">
+    <p class="kicker">¡Nos casamos!</p>
+    <div class="hero" role="img" aria-label="Sobre color vino con nuestra foto, alcatraces y un sello de cera">
+      <svg class="callas" viewBox="0 0 240 290" aria-hidden="true">
+        <g transform="translate(92,168) rotate(-22) scale(-0.92,0.92) translate(-40,-128)"><use class="sway b" href="#calla"/></g>
+        <g transform="translate(150,170) rotate(22) scale(0.9,0.9) translate(-40,-128)"><use class="sway c" href="#calla"/></g>
+        <g transform="translate(120,150) rotate(0) scale(1,1) translate(-40,-128)"><use class="sway " href="#calla"/></g>
+      </svg>
+      <div class="env-back"></div>
+      <figure class="photo" style="margin:0">
+        <div class="photo-img"><span>Su foto aquí</span></div>
+        <figcaption class="photo-cap">20 · 03 · 2027</figcaption>
+      </figure>
+      <svg class="env-front" viewBox="0 0 300 190" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,0 L160,116 L0,190Z" fill="url(#flapL)"/>
+        <path d="M300,0 L140,116 L300,190Z" fill="url(#flapR)"/>
+        <path d="M0,190 L150,92 L300,190Z" fill="url(#flapB)"/>
+        <path d="M0,0 L150,109 L300,0 M0,190 L150,92 L300,190" fill="none" stroke="#3e0c18" stroke-opacity=".35" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <svg class="seal" viewBox="-50 -50 100 100" aria-hidden="true"><use href="#seal"/></svg>
+      <svg class="posy" viewBox="0 0 120 170" aria-hidden="true"><use href="#posy"/></svg>
+    </div>
+  </header>
+
+  <section class="player" aria-label="Nuestra canción">
+    <p>Dale play y escucha nuestra canción</p>
+    <p class="song-title">Por ti me casaré · Eros Ramazzotti</p>
+    <div class="track" aria-hidden="true"><span id="song-progress"></span></div>
+    <button class="play" id="play" type="button" aria-label="Reproducir nuestra canción">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path id="play-icon" fill="currentColor" d="M8 5v14l11-7z"/></svg>
+    </button>
+    <p class="note" id="song-note">Se abre en Apple Music</p>
+    <audio id="song" preload="none"></audio>
+  </section>
+
+  <section class="suite" aria-label="Invitación">
+    <div class="invite-frame">
+      <div class="invite">
+        <p class="eyebrow">Tenemos el honor de invitarte a la boda de</p>
+        <h1 class="names">Valeria</h1>
+        <p class="amp">&amp;</p>
+        <p class="names">Andrés</p>
+        <p class="date">Sábado 20 de marzo de 2027</p>
+        <p class="place">Miami, Florida</p>
+      </div>
+    </div>
+    <div class="venue">
+      <h2 class="title"><span class="cap">C</span>eremonia y recepción</h2>
+      <p class="caps">Jardín Las Palmas</p>
+      <p>1234 Calle Ejemplo, Miami</p>
+      <a class="pill" id="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Miami%2C%20Florida" target="_blank" rel="noopener">Ver ubicación</a>
+      <p class="caps">Hora: 4:00 p. m.</p>
+    </div>
+    <svg class="posy" viewBox="0 0 120 170" aria-hidden="true"><use href="#posy"/></svg>
+  </section>
+
+  <section class="itin" aria-label="Itinerario">
+    <h2 class="title"><span class="cap">I</span>tinerario</h2>
+    <ol class="sched">
+      <li><time>4:00 p. m.</time><span>Ceremonia</span></li>
+      <li><time>5:00 p. m.</time><span>Cóctel</span></li>
+      <li><time>6:30 p. m.</time><span>Recepción</span></li>
+      <li><time>8:00 p. m.</time><span>Primer baile</span></li>
+    </ol>
+    <svg class="lying" viewBox="0 0 300 100" aria-hidden="true"><use href="#calla" transform="translate(20,108) rotate(-90)"/></svg>
+  </section>
+
+  <section class="dress" aria-label="Código de vestimenta">
+    <div class="polaroid" aria-hidden="true"><div class="photo-img"></div></div>
+    <div class="dress-card">
+      <svg class="clip" viewBox="0 0 16 46" aria-hidden="true"><path d="M4,8 V36 a4,4 0 0 0 8,0 V6 a3,3 0 0 0 -6,0 V32" fill="none" stroke="#bdb6a8" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <h2 class="title"><span class="cap">D</span>ress code</h2>
+      <p class="caps">Formal de noche.<br>Caballeros con traje,<br>damas con vestido largo.</p>
+      <p>El color blanco es solo para la novia.</p>
+      <p class="small">Colores sugeridos</p>
+      <ul class="swatches" aria-label="Colores sugeridos: chocolate, durazno, rosa palo y salvia">
+        <li class="swatch" style="background:#6a4535"></li>
+        <li class="swatch" style="background:#eab59c"></li>
+        <li class="swatch" style="background:#e4b8bf"></li>
+        <li class="swatch" style="background:#a9b79a"></li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="quote">Nos encontramos, nos elegimos y hoy queremos compartir con ustedes el comienzo de nuestra vida juntos.</p>
+
+  <section class="gifts" aria-label="Regalos">
+    <div class="gift-card">
+      <svg class="seal" viewBox="-50 -50 100 100" aria-hidden="true"><use href="#seal"/></svg>
+      <p><span class="cap">T</span>u compañía es lo más importante. Si deseas hacernos un obsequio, lo recibiremos con mucho cariño.</p>
+    </div>
+    <div class="gift-row">
+      <svg class="callas-side" viewBox="0 0 200 150" aria-hidden="true">
+        <g transform="translate(100,118) rotate(-88) scale(0.56,0.56) translate(-40,-128)"><use class="" href="#calla"/></g>
+        <g transform="translate(95,95) rotate(-68) scale(0.62,0.62) translate(-40,-128)"><use class="" href="#calla"/></g>
+      </svg>
+      <button class="gift-btn" id="gift-btn" type="button" aria-expanded="false" aria-controls="gift-detail">
+        <span class="cap">R</span>egalos<small>Toca para ver</small>
+      </button>
+    </div>
+    <div class="gift-detail" id="gift-detail" hidden>
+      <strong>Lluvia de sobres</strong>
+      El día de la boda habrá una caja para sobres en la recepción.
+    </div>
+  </section>
+
+  <section class="countdown" aria-label="Cuenta regresiva">
+    <p class="faltan">Faltan</p>
+    <div class="clock" role="timer" aria-live="off">
+      <div class="unit"><strong id="cd-days">--</strong><span>Días</span></div>
+      <div class="unit"><strong id="cd-hours">--</strong><span>Horas</span></div>
+      <div class="unit"><strong id="cd-mins">--</strong><span>Minutos</span></div>
+    </div>
+    <p class="gran" id="cd-label">Para nuestro gran día</p>
+  </section>
+
+  <section class="rsvp" aria-label="Confirmación de asistencia">
+    <div class="rsvp-stage">
+      <svg class="callas" viewBox="0 0 240 290" aria-hidden="true">
+        <g transform="translate(92,168) rotate(-22) scale(-0.92,0.92) translate(-40,-128)"><use class="sway c" href="#calla"/></g>
+        <g transform="translate(150,170) rotate(22) scale(0.9,0.9) translate(-40,-128)"><use class="sway b" href="#calla"/></g>
+        <g transform="translate(120,150) rotate(0) scale(1,1) translate(-40,-128)"><use class="sway " href="#calla"/></g>
+      </svg>
+      <div class="rsvp-env">
+        <div class="rsvp-back"></div>
+        <form class="rsvp-card" id="rsvp" novalidate>
+          <h2 class="title"><span class="cap">C</span>onfirma tu asistencia</h2>
+          <div class="field">
+            <label for="rsvp-name">Tu nombre</label>
+            <input type="text" id="rsvp-name" name="name" autocomplete="name" placeholder="Nombre y apellido">
+          </div>
+          <fieldset>
+            <legend>¿Nos acompañas en nuestro gran día?</legend>
+            <input class="vh" type="radio" id="rsvp-yes" name="attend" value="si" checked>
+            <label class="opt" for="rsvp-yes">¡Sí, ahí estaré!</label>
+            <input class="vh" type="radio" id="rsvp-no" name="attend" value="no">
+            <label class="opt" for="rsvp-no">No podré asistir, pero los llevo en mi corazón</label>
+          </fieldset>
+          <div class="field" id="party-row">
+            <label for="rsvp-party">¿Cuántas personas, contándote a ti?</label>
+            <select id="rsvp-party" name="party">
+              <option value="1">1 persona</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5">5 personas</option>
+            </select>
+          </div>
+          <button class="confirm" type="submit">Confirmar por WhatsApp</button>
+          <p class="status" id="rsvp-status" role="status">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+          <div class="preview-msg" id="rsvp-preview" hidden></div>
+        </form>
+        <svg class="rsvp-front" viewBox="0 0 300 150" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 L162,92 L0,150Z" fill="url(#flapL)"/>
+          <path d="M300,0 L138,92 L300,150Z" fill="url(#flapR)"/>
+          <path d="M0,150 L150,66 L300,150Z" fill="url(#flapB)"/>
+          <path d="M0,0 L150,85 L300,0 M0,150 L150,66 L300,150" fill="none" stroke="#3e0c18" stroke-opacity=".35" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <svg class="seal" viewBox="-50 -50 100 100" aria-hidden="true"><use href="#seal"/></svg>
+      </div>
+    </div>
+    <p class="closing">Con mucho cariño, te pedimos que nos confirmes tu asistencia antes del 20 de febrero de 2027.</p>
+    <p class="sign">Valeria &amp; Andrés</p>
+  </section>
+</main>
+
+<script>
+// Datos de la boda: cambia aquí la fecha, el WhatsApp de los novios y la canción.
+const CONFIG = {
+  wedding: "2027-03-20T16:00:00",
+  whatsapp: "",   // número con código de país, solo dígitos (ej. 13055551234)
+  song: "cancion.mp4", // archivo de la canción; si está vacío, el botón abre Apple Music
+  songLink: "https://music.apple.com/us/album/por-ti-me-casare-spanish-version-of-ti-sposer%C3%B2-perch%C3%A9/206184027?i=206184043&l=es-MX"
+};
+
+// Cuenta regresiva
+const cd = {
+  d: document.getElementById("cd-days"),
+  h: document.getElementById("cd-hours"),
+  m: document.getElementById("cd-mins"),
+  label: document.getElementById("cd-label")
+};
+const pad = n => String(n).padStart(2, "0");
+function tick() {
+  const diff = new Date(CONFIG.wedding).getTime() - Date.now();
+  if (diff <= 0) {
+    cd.d.textContent = cd.h.textContent = cd.m.textContent = "00";
+    cd.label.textContent = "¡Llegó nuestro gran día!";
+    return;
+  }
+  cd.d.textContent = pad(Math.floor(diff / 864e5));
+  cd.h.textContent = pad(Math.floor(diff % 864e5 / 36e5));
+  cd.m.textContent = pad(Math.floor(diff % 36e5 / 6e4));
+}
+tick();
+setInterval(tick, 15000);
+
+// Música
+const audio = document.getElementById("song");
+const playBtn = document.getElementById("play");
+const playIcon = document.getElementById("play-icon");
+const progress = document.getElementById("song-progress");
+const songNote = document.getElementById("song-note");
+const PLAY = "M8 5v14l11-7z", PAUSE = "M7 5h4v14H7zM13 5h4v14h-4z";
+if (CONFIG.song) { audio.src = CONFIG.song; songNote.hidden = true; }
+playBtn.addEventListener("click", () => {
+  if (!CONFIG.song) { window.open(CONFIG.songLink, "_blank", "noopener"); return; }
+  if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+});
+audio.addEventListener("play", () => { playIcon.setAttribute("d", PAUSE); playBtn.setAttribute("aria-label", "Pausar la canción"); });
+audio.addEventListener("pause", () => { playIcon.setAttribute("d", PLAY); playBtn.setAttribute("aria-label", "Reproducir nuestra canción"); });
+audio.addEventListener("timeupdate", () => {
+  if (audio.duration) progress.style.width = (audio.currentTime / audio.duration * 100) + "%";
+});
+
+// Regalos
+const giftBtn = document.getElementById("gift-btn");
+const giftDetail = document.getElementById("gift-detail");
+giftBtn.addEventListener("click", () => {
+  const open = giftDetail.hidden;
+  giftDetail.hidden = !open;
+  giftBtn.setAttribute("aria-expanded", String(open));
+});
+
+// Confirmación por WhatsApp
+const form = document.getElementById("rsvp");
+const nameInput = document.getElementById("rsvp-name");
+const partyRow = document.getElementById("party-row");
+const statusEl = document.getElementById("rsvp-status");
+const previewEl = document.getElementById("rsvp-preview");
+form.addEventListener("change", () => {
+  partyRow.hidden = form.attend.value !== "si";
+});
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const name = nameInput.value.trim();
+  if (!name) {
+    statusEl.textContent = "Escribe tu nombre para que sepamos quién confirma.";
+    statusEl.classList.add("err");
+    nameInput.focus();
+    return;
+  }
+  statusEl.classList.remove("err");
+  const yes = form.attend.value === "si";
+  const n = Number(form.party.value);
+  const msg = yes
+    ? `Hola, soy ${name}. ¡Confirmo mi asistencia a su boda! Seremos ${n} ${n === 1 ? "persona" : "personas"}.`
+    : `Hola, soy ${name}. No podré asistir a su boda, pero los llevo en mi corazón.`;
+  previewEl.hidden = false;
+  previewEl.textContent = msg;
+  if (!CONFIG.whatsapp) {
+    statusEl.textContent = "Así se verá tu mensaje. El número de WhatsApp de los novios se agrega en la versión final.";
+    return;
+  }
+  const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+  const win = window.open(url, "_blank", "noopener");
+  statusEl.textContent = "Envía el mensaje en WhatsApp para completar tu confirmación.";
+  if (!win) {
+    const a = document.createElement("a");
+    a.href = url; a.target = "_blank"; a.rel = "noopener";
+    a.textContent = "Abrir WhatsApp";
+    previewEl.append(document.createElement("br"), a);
+  }
+});
+</script>
+
+</body>
+</html>
