@@ -98,6 +98,7 @@ p,h1,h2,h3{margin:0}
 .eyebrow{font:600 13px/1.65 var(--serif);letter-spacing:.14em;text-transform:uppercase;text-wrap:balance}
 .names{font:400 clamp(46px,14vw,60px)/1.15 var(--script);color:var(--ink);margin-top:6px}
 .amp{font:400 36px/1 var(--script);color:var(--wine)}
+.couple{display:flex;flex-direction:column;align-items:center;gap:4px;margin:0}
 .date{font-weight:600;font-size:18px;margin-top:14px}
 .place{font-size:14px;letter-spacing:.08em;color:var(--muted)}
 .venue{align-self:flex-end;width:70%;margin-top:-76px;position:relative;z-index:2;background:var(--wine);color:var(--on-wine);padding:26px 18px 24px;text-align:center;box-shadow:var(--lift);display:flex;flex-direction:column;align-items:center;gap:6px}
@@ -327,9 +328,11 @@ p,h1,h2,h3{margin:0}
     <div class="invite-frame">
       <div class="invite">
         <p class="eyebrow">Tenemos el honor de invitarte a la boda de</p>
-        <h1 class="names">Leo</h1>
-        <p class="amp">&amp;</p>
-        <p class="names">Rachel</p>
+        <h1 class="couple" aria-label="Leo y Rachel">
+          <span class="names">Leo</span>
+          <span class="amp">&amp;</span>
+          <span class="names">Rachel</span>
+        </h1>
         <p class="date">Sábado 13 de marzo de 2027</p>
         <p class="place">Homestead, Florida</p>
       </div>
@@ -390,7 +393,7 @@ p,h1,h2,h3{margin:0}
         <g transform="translate(100,118) rotate(-88) scale(0.56,0.56) translate(-40,-128)"><use class="" href="#calla"/></g>
         <g transform="translate(95,95) rotate(-68) scale(0.62,0.62) translate(-40,-128)"><use class="" href="#calla"/></g>
       </svg>
-      <button class="gift-btn" id="gift-btn" type="button" aria-expanded="false" aria-controls="gift-detail">
+      <button class="gift-btn" id="gift-btn" type="button" aria-expanded="false" aria-controls="gift-detail" aria-label="Regalos: toca para ver los detalles">
         <span class="cap">R</span>egalos<small>Toca para ver</small>
       </button>
     </div>
