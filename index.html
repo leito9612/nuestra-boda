@@ -174,6 +174,14 @@ p,h1,h2,h3{margin:0}
 .status.err{color:#9b1c2e;font-style:normal;font-weight:600}
 .preview-msg{background:#f3eee9;border-left:2px solid var(--wine);padding:10px 12px;font-size:15px;line-height:1.45}
 .preview-msg a{color:var(--wine);font-weight:600}
+.send-steps{display:flex;flex-direction:column;gap:10px}
+.steps-title{font:600 15px/1.4 var(--serif);text-align:center;color:var(--wine)}
+.send-btn{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--wine);border-radius:999px;background:var(--card);color:var(--wine);text-decoration:none;font:600 16px/1.2 var(--serif);font-variant-numeric:tabular-nums}
+.send-btn:hover{background:#f6eaeb}
+.send-btn:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.step-n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--wine);color:var(--on-wine);display:grid;place-items:center;font-size:15px}
+.send-btn.done{background:#f6eaeb}
+.send-btn.done .step-n{background:#3f7d4f}
 .rsvp-front{position:absolute;left:0;bottom:0;width:100%;height:150px;z-index:3;display:block}
 .rsvp-env .seal{position:absolute;left:50%;bottom:76px;width:66px;transform:translate(-50%,50%);z-index:4}
 .closing{text-align:center;font:500 18px/1.55 var(--serif);text-transform:uppercase;letter-spacing:.06em;max-width:30ch;text-wrap:balance}
@@ -366,7 +374,7 @@ p,h1,h2,h3{margin:0}
     </div>
   </section>
 
-  <p class="quote">Nos encontramos, nos elegimos y hoy queremos compartir con ustedes el comienzo de nuestra vida juntos.</p>
+  <p class="quote">Nos encontramos, nos elegimos y hoy queremos compartir con ustedes el comienzo de nuestra vida juntos como casados.</p>
 
   <section class="gifts" aria-label="Regalos">
     <div class="gift-card">
@@ -430,9 +438,14 @@ p,h1,h2,h3{margin:0}
               <option value="5">5 personas</option>
             </select>
           </div>
-          <button class="confirm" type="submit">Confirmar por WhatsApp</button>
-          <p class="status" id="rsvp-status" role="status">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
-          <div class="preview-msg" id="rsvp-preview" hidden></div>
+          <button class="confirm" type="submit">Confirmar asistencia</button>
+          <p class="status" id="rsvp-status" role="status">Tu confirmación les llega a los novios por WhatsApp.</p>
+          <div class="send-steps" id="send-steps" hidden>
+            <div class="preview-msg" id="rsvp-preview"></div>
+            <p class="steps-title">Último paso: envía tu mensaje a los dos números</p>
+            <a class="send-btn" id="send-0" target="_blank" rel="noopener"><span class="step-n">1</span><span class="step-label"></span></a>
+            <a class="send-btn" id="send-1" target="_blank" rel="noopener"><span class="step-n">2</span><span class="step-label"></span></a>
+          </div>
         </form>
         <svg class="rsvp-front" viewBox="0 0 300 150" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0,0 L162,92 L0,150Z" fill="url(#flapL)"/>
@@ -452,7 +465,7 @@ p,h1,h2,h3{margin:0}
 // Datos de la boda: cambia aquí la fecha, el WhatsApp de los novios y la canción.
 const CONFIG = {
   wedding: "2027-03-13T16:00:00",
-  whatsapp: "",   // número con código de país, solo dígitos (ej. 13055551234)
+  whatsapp: ["17862706399", "17868781706"], // números de los novios, con código de país, solo dígitos
   song: "cancion.mp4", // archivo de la canción; si está vacío, el botón abre Apple Music
   songLink: "https://music.apple.com/us/album/por-ti-me-casare-spanish-version-of-ti-sposer%C3%B2-perch%C3%A9/206184027?i=206184043&l=es-MX"
 };
@@ -506,12 +519,16 @@ giftBtn.addEventListener("click", () => {
   giftBtn.setAttribute("aria-expanded", String(open));
 });
 
-// Confirmación por WhatsApp
+// Confirmación por WhatsApp (un enlace por número: WhatsApp no permite varios destinatarios)
 const form = document.getElementById("rsvp");
 const nameInput = document.getElementById("rsvp-name");
 const partyRow = document.getElementById("party-row");
 const statusEl = document.getElementById("rsvp-status");
+const stepsEl = document.getElementById("send-steps");
 const previewEl = document.getElementById("rsvp-preview");
+const sendLinks = CONFIG.whatsapp.map((_, i) => document.getElementById("send-" + i));
+const fmtPhone = d => d.length === 11 && d[0] === "1" ? `(${d.slice(1, 4)}) ${d.slice(4, 7)}-${d.slice(7)}` : "+" + d;
+
 form.addEventListener("change", () => {
   partyRow.hidden = form.attend.value !== "si";
 });
@@ -530,22 +547,26 @@ form.addEventListener("submit", e => {
   const msg = yes
     ? `Hola, soy ${name}. ¡Confirmo mi asistencia a su boda! Seremos ${n} ${n === 1 ? "persona" : "personas"}.`
     : `Hola, soy ${name}. No podré asistir a su boda, pero los llevo en mi corazón.`;
-  previewEl.hidden = false;
   previewEl.textContent = msg;
-  if (!CONFIG.whatsapp) {
-    statusEl.textContent = "Así se verá tu mensaje. El número de WhatsApp de los novios se agrega en la versión final.";
-    return;
-  }
-  const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
-  const win = window.open(url, "_blank", "noopener");
-  statusEl.textContent = "Envía el mensaje en WhatsApp para completar tu confirmación.";
-  if (!win) {
-    const a = document.createElement("a");
-    a.href = url; a.target = "_blank"; a.rel = "noopener";
-    a.textContent = "Abrir WhatsApp";
-    previewEl.append(document.createElement("br"), a);
-  }
+  CONFIG.whatsapp.forEach((num, i) => {
+    const a = sendLinks[i];
+    a.href = `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+    a.classList.remove("done");
+    a.querySelector(".step-n").textContent = i + 1;
+    a.querySelector(".step-label").textContent = `Enviar a ${fmtPhone(num)}`;
+  });
+  stepsEl.hidden = false;
+  statusEl.textContent = "Así quedó tu mensaje. Toca los dos botones de abajo.";
+  stepsEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
 });
+sendLinks.forEach((a, i) => a.addEventListener("click", () => {
+  a.classList.add("done");
+  a.querySelector(".step-n").textContent = "✓";
+  const left = sendLinks.filter(l => !l.classList.contains("done")).length;
+  statusEl.textContent = left
+    ? `Envía el mensaje en WhatsApp y luego regresa aquí para tocar el botón ${sendLinks.findIndex(l => !l.classList.contains("done")) + 1}.`
+    : "¡Gracias! Asegúrate de haber enviado el mensaje en los dos chats de WhatsApp.";
+}));
 </script>
 
 </body>
