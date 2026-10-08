@@ -104,6 +104,8 @@ p,h1,h2,h3{margin:0}
 .venue .title{font-size:17px}
 .pill{display:inline-block;margin-block:6px;border:1px solid currentColor;border-radius:999px;padding:5px 18px 4px;color:inherit;text-decoration:none;font:600 13px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase}
 .pill:hover{background:rgba(255,255,255,.1)}
+.map-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-block:8px 4px}
+.map-links .pill{margin:0;padding:6px 12px 5px;letter-spacing:.08em}
 .suite .posy{position:absolute;left:2%;bottom:-54px;width:30%;z-index:3}
 
 /* itinerary */
@@ -275,7 +277,7 @@ p,h1,h2,h3{margin:0}
 </svg>
 
 <main class="page">
-  <p class="draft">Borrador · hora y lugares de ejemplo</p>
+  <p class="draft">Borrador · horarios de ejemplo</p>
 
   <header class="hero-wrap">
     <p class="kicker">¡Nos casamos!</p>
@@ -320,14 +322,17 @@ p,h1,h2,h3{margin:0}
         <p class="amp">&amp;</p>
         <p class="names">Rachel</p>
         <p class="date">Sábado 13 de marzo de 2027</p>
-        <p class="place">Miami, Florida</p>
+        <p class="place">Homestead, Florida</p>
       </div>
     </div>
     <div class="venue">
       <h2 class="title"><span class="cap">C</span>eremonia y recepción</h2>
-      <p class="caps">Jardín Las Palmas</p>
-      <p>1234 Calle Ejemplo, Miami</p>
-      <a class="pill" id="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Miami%2C%20Florida" target="_blank" rel="noopener">Ver ubicación</a>
+      <p class="caps">Lagos Ranch</p>
+      <p>17350 SW 236th St<br>Homestead, FL 33031</p>
+      <div class="map-links">
+        <a class="pill" id="map-google" href="https://www.google.com/maps/search/?api=1&amp;query=Lagos%20Ranch%2C%2017350%20SW%20236th%20St%2C%20Homestead%2C%20FL%2033031" target="_blank" rel="noopener">Google Maps</a>
+        <a class="pill" id="map-apple" href="https://maps.apple.com/place?address=17350%20SW%20236th%20St,%20Homestead,%20FL%20%2033031,%20United%20States&amp;coordinate=25.546313,-80.473412&amp;name=Lagos%20Ranch&amp;place-id=I450EBEBB2ACDEAA0" target="_blank" rel="noopener">Apple Maps</a>
+      </div>
       <p class="caps">Hora: 4:00 p. m.</p>
     </div>
     <svg class="posy" viewBox="0 0 120 170" aria-hidden="true"><use href="#posy"/></svg>
