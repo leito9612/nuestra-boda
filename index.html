@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://leito9612.github.io/nuestra-boda-leo-y-rachel/">
 <meta property="og:title" content="Nuestra boda · Leo &amp; Rachel">
 <meta property="og:description" content="Estás invitado a nuestra boda. Toca el sello y abre tu invitación.">
-<meta property="og:image" content="https://leito9612.github.io/nuestra-boda-leo-y-rachel/vista-previa-2.jpg">
+<meta property="og:image" content="https://leito9612.github.io/nuestra-boda-leo-y-rachel/vista-previa-3.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -78,17 +78,15 @@ p,h1,h2,h3{margin:0}
 .card-kicker{font:400 34px/1.05 var(--script);font-size:9.6cqw;color:var(--wine)}
 .card-names{font:600 12px/1.3 var(--serif);font-size:3.4cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
 .card-date{font:500 12px/1.3 var(--serif);font-size:3.4cqw;letter-spacing:.14em;color:var(--muted)}
-.seal-btn{position:absolute;left:51.63%;top:47.37%;width:32.6%;aspect-ratio:1;transform:translate(-50%,-50%) rotate(-12deg);z-index:6;border:0;padding:0;background:none;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.seal-btn{position:absolute;left:51.9%;top:47.1%;width:32%;aspect-ratio:1;transform:translate(-50%,-50%) rotate(-8deg);z-index:6;border:0;padding:0;background:none;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .seal-btn:disabled{cursor:default}
-.seal-btn .seal{width:100%;height:100%}
+.seal-btn .seal-img{width:100%;height:100%;display:block;filter:drop-shadow(0 4px 5px rgba(30,8,4,.55))}
 .seal-btn:focus-visible{outline:2px solid #f3d98a;outline-offset:2px}
 .seal{filter:drop-shadow(0 3px 4px rgba(40,15,5,.5));display:block;overflow:visible}
 .cover-hint{font:italic 600 19px/1.3 var(--serif);color:#3a0c16;letter-spacing:.02em;text-shadow:0 0 14px rgba(255,244,234,.75);text-align:center}
 .scroll-hint{display:none}
-.photo-img{aspect-ratio:1.2;display:grid;place-items:center;background:
-  radial-gradient(120% 70% at 30% 100%,#3a3a3a 0 35%,transparent 36%),
-  radial-gradient(90% 60% at 85% 100%,#555 0 30%,transparent 31%),
-  linear-gradient(#d9d9d9,#9c9c9c 62%,#6e6e6e)}
+.photo-img{aspect-ratio:1.2;display:grid;place-items:center;background:linear-gradient(#ece8e3,#ddd6cf);color:#a99f97}
+.photo-icon{width:30%;height:auto;display:block}
 /* states (env-closed is added by the script before first paint) */
 .env-closed:not(.env-open) .page{display:none}
 .env-opening .open-hint{display:none}
@@ -97,12 +95,34 @@ p,h1,h2,h3{margin:0}
 .env-opening .env-flap::after{opacity:1}
 .env-opening .env-card{visibility:visible;transform:translate(-17.1%,-72.9%) rotate(-17.18deg)}
 
+/* open envelope (as in the video): callas behind, picture placeholder, ivory seal, roses */
+.hero{display:flex;justify-content:center}
+.hero-box{position:relative;width:100%;max-width:380px;aspect-ratio:300/330}
+.hero{padding-top:70px}
+.hero .callas{position:absolute;left:6%;top:-24%;width:88%;z-index:1}
+.env-back{position:absolute;inset:42% 0 0 0;background:linear-gradient(#5d1727,#4a1020);border-radius:3px;z-index:2;box-shadow:var(--lift)}
+.env-back::before{content:"";position:absolute;inset:0;background:linear-gradient(#ebdcd4,#d8c1b8);clip-path:polygon(3% 0,97% 0,50% 60%)}
+.photo{position:absolute;left:17%;top:24%;width:64%;z-index:3;margin:0;background:#fff;padding:8px;box-shadow:0 8px 16px -6px rgba(40,20,20,.35);transform:rotate(-6deg)}
+.photo .photo-img{aspect-ratio:1.15}
+.env-front{position:absolute;left:0;bottom:0;width:100%;height:58%;z-index:4;display:block}
+.hero .seal{position:absolute;left:50%;top:73%;width:21%;transform:translate(-50%,-50%);z-index:5}
+.hero .posy{position:absolute;right:-6%;bottom:-16%;width:38%;z-index:6}
+/* motion: html.js-motion is set by the script when the viewer allows animation */
+.js-motion .photo:not(.in){translate:0 30%}
+.js-motion .photo{transition:translate 1.5s cubic-bezier(.2,.7,.2,1)}
+.js-motion .rsvp-card:not(.in){translate:0 24%}
+.js-motion .rsvp-card{transition:translate 1.6s cubic-bezier(.2,.7,.2,1)}
+
 /* music */
 .player{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
 .player p{font:500 22px/1.3 var(--serif);text-wrap:balance}
 .track{width:min(210px,70%);height:2px;background:rgba(45,33,36,.22);position:relative}
 .track span{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ink)}
 .track span::after{content:"";position:absolute;right:-4px;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.controls{display:flex;align-items:center;gap:18px}
+.ctl{width:40px;height:40px;border:0;background:none;color:var(--ink);display:grid;place-items:center;cursor:pointer;border-radius:50%}
+.ctl svg{width:20px;height:20px}
+.ctl:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
 .play{width:48px;height:48px;border-radius:50%;border:0;background:var(--ink);color:var(--paper);display:grid;place-items:center;cursor:pointer}
 .play svg{width:22px;height:22px}
 .play:focus-visible,.gift-btn:focus-visible,.confirm:focus-visible,.pill:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
@@ -135,10 +155,12 @@ p,h1,h2,h3{margin:0}
 .itin .lying{width:92%;display:block;margin-top:-4px}
 
 /* dress code */
-.dress{position:relative;display:flex;justify-content:center;padding-top:10px}
-.dress .polaroid{position:absolute;right:0;top:-6px;width:46%;background:#fff;padding:6px 6px 24px;box-shadow:0 8px 16px -8px rgba(40,20,20,.4);transform:rotate(8deg);z-index:1}
+.dress{position:relative;display:flex;justify-content:center;padding-block:22px 92px}
+.dress .polaroid{position:absolute;left:0;top:0;width:44%;background:#fff;padding:6px 6px 22px;box-shadow:0 8px 16px -8px rgba(40,20,20,.4);transform:rotate(-8deg);z-index:1}
+.sketch-card{position:absolute;right:0;bottom:0;width:50%;aspect-ratio:1.2;background:#fdfcfa;box-shadow:0 10px 18px -10px rgba(40,20,20,.4);z-index:1;display:grid;place-items:end center;padding-top:8%;box-sizing:border-box}
+.sketch-card svg{width:86%;height:auto;display:block}
 .dress .polaroid .photo-img{aspect-ratio:1}
-.dress-card{position:relative;z-index:2;width:72%;background:var(--wine);color:var(--on-wine);padding:30px 18px 24px;text-align:center;box-shadow:var(--lift);display:flex;flex-direction:column;align-items:center;gap:10px;margin-right:12%}
+.dress-card{position:relative;z-index:2;width:72%;background:var(--wine);color:var(--on-wine);padding:30px 18px 24px;text-align:center;box-shadow:var(--lift);display:flex;flex-direction:column;align-items:center;gap:10px;margin-left:6%}
 .dress-card p{font-size:15px;line-height:1.5;text-wrap:balance}
 .clip{position:absolute;top:-16px;left:20px;width:16px;height:46px}
 .swatches{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;list-style:none;margin:2px 0 0;padding:0}
@@ -174,7 +196,7 @@ p,h1,h2,h3{margin:0}
 .rsvp{display:flex;flex-direction:column;align-items:center;gap:30px}
 .rsvp-stage{position:relative;width:100%;padding-top:170px}
 .rsvp-stage .callas{position:absolute;top:0;left:50%;width:64%;transform:translateX(-50%);z-index:0}
-.rsvp-env{position:relative}
+.rsvp-env{position:relative;clip-path:inset(-400px -60px 0 -60px)}
 .rsvp-back{position:absolute;left:0;right:0;bottom:0;top:34%;background:linear-gradient(#5d1727,#4a1020);border-radius:3px;z-index:1;box-shadow:var(--lift)}
 .rsvp-card{position:relative;z-index:2;margin-inline:7%;background:var(--card);padding:28px 20px 168px;display:flex;flex-direction:column;gap:16px;outline:1px solid rgba(108,29,45,.2);outline-offset:-8px;box-shadow:0 0 0 10px var(--wine)}
 .rsvp-card .title{text-align:center;font-size:17px}
@@ -212,7 +234,7 @@ p,h1,h2,h3{margin:0}
   @keyframes seal-pulse{from{transform:scale(.92);opacity:.9}to{transform:scale(1.35);opacity:0}}
   .env-closed:not(.env-opening) .open-hint{animation:hint 2.4s ease-in-out infinite}
   @keyframes hint{0%,100%{opacity:1}50%{opacity:.6}}
-  .env-opening .seal-btn .seal{animation:seal-press .5s ease-out}
+  .env-opening .seal-btn .seal-img{animation:seal-press .5s ease-out}
   @keyframes seal-press{0%{transform:scale(1)}35%{transform:scale(.86)}70%{transform:scale(1.05)}100%{transform:scale(1)}}
   .env-opening .env-flap{animation:flap-open 1s cubic-bezier(.45,.05,.3,1) .3s both}
   .env-opening .env-flap::after{animation:flap-back 1s linear .3s both}
@@ -247,10 +269,10 @@ p,h1,h2,h3{margin:0}
       <stop offset="0" stop-color="#5d7a39"/><stop offset=".5" stop-color="#86a35a"/><stop offset="1" stop-color="#5d7a39"/>
     </linearGradient>
     <radialGradient id="sealFace" cx=".36" cy=".3" r=".82">
-      <stop offset="0" stop-color="#f7e7b4"/><stop offset=".35" stop-color="#dcbd6a"/><stop offset=".72" stop-color="#b48a3a"/><stop offset="1" stop-color="#6f5218"/>
+      <stop offset="0" stop-color="#fbf6e8"/><stop offset=".6" stop-color="#eadcbc"/><stop offset="1" stop-color="#c9b282"/>
     </radialGradient>
     <radialGradient id="sealInner" cx=".64" cy=".68" r=".78">
-      <stop offset="0" stop-color="#e6cc82"/><stop offset=".6" stop-color="#c9a352"/><stop offset="1" stop-color="#9a752c"/>
+      <stop offset="0" stop-color="#f4eacf"/><stop offset="1" stop-color="#d9c79a"/>
     </radialGradient>
     <radialGradient id="roseShade">
       <stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#1a0006" stop-opacity=".32"/>
@@ -310,16 +332,16 @@ p,h1,h2,h3{margin:0}
 
     <g id="seal">
       <circle r="44" fill="url(#sealFace)" filter="url(#wobble)"/>
-      <ellipse cx="-17" cy="-22" rx="15" ry="7" transform="rotate(-35 -17 -22)" fill="#fffbe8" opacity=".45"/>
-      <circle r="31" fill="url(#sealInner)" stroke="#9c7a2c" stroke-width="2.2"/>
-      <circle r="27.5" fill="none" stroke="#8c6a22" stroke-width="1.7" stroke-linecap="round" stroke-dasharray=".1 3.6"/>
-      <text class="seal-text" x=".7" y="9.7" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="25" fill="#fff6d6" fill-opacity=".75">L&amp;R</text>
-      <text class="seal-text" y="9" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="25" fill="#7a5716">L&amp;R</text>
+      <ellipse cx="-17" cy="-22" rx="15" ry="7" transform="rotate(-35 -17 -22)" fill="#fff" opacity=".35"/>
+      <circle r="31" fill="url(#sealInner)" stroke="#c2ab7a" stroke-width="2.2"/>
+      <circle r="27.5" fill="none" stroke="#b9a274" stroke-width="1.7" stroke-linecap="round" stroke-dasharray=".1 3.6"/>
+      <text class="seal-text" x=".7" y="9.7" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="25" fill="#fff" fill-opacity=".6">L&amp;R</text>
+      <text class="seal-text" y="9" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="25" fill="#ae955c">L&amp;R</text>
     </g>
   </defs>
 </svg>
 
-<script>document.documentElement.classList.add("env-closed")</script>
+<script>document.documentElement.classList.add("env-closed");if(matchMedia("(prefers-reduced-motion: no-preference)").matches)document.documentElement.classList.add("js-motion")</script>
 
 <header class="cover">
   <div class="cover-frame">
@@ -333,7 +355,7 @@ p,h1,h2,h3{margin:0}
     <div class="env-layer env-pocket" aria-hidden="true"></div>
     <div class="env-layer env-flap" aria-hidden="true"></div>
     <button class="seal-btn" id="open-seal" type="button" aria-label="Abrir la invitación">
-      <svg class="seal" viewBox="-50 -50 100 100" aria-hidden="true"><use href="#seal"/></svg>
+      <img class="seal-img" src="sello-r.png" alt="" width="480" height="480">
     </button>
   </div>
   <p class="cover-hint open-hint">Toca el sello para abrir</p>
@@ -343,14 +365,38 @@ p,h1,h2,h3{margin:0}
 <main class="page">
   <p class="draft">Borrador · horarios de ejemplo</p>
 
+  <section class="hero" aria-label="Sobre de la invitación">
+    <div class="hero-box">
+      <svg class="callas" viewBox="0 0 240 290" aria-hidden="true" data-parallax="-.06">
+        <g transform="translate(92,168) rotate(-22) scale(-0.92,0.92) translate(-40,-128)"><use class="sway b" href="#calla"/></g>
+        <g transform="translate(150,170) rotate(22) scale(0.9,0.9) translate(-40,-128)"><use class="sway c" href="#calla"/></g>
+        <g transform="translate(120,150) rotate(0) scale(1,1) translate(-40,-128)"><use class="sway" href="#calla"/></g>
+      </svg>
+      <div class="env-back"></div>
+      <figure class="photo" data-rise aria-label="Espacio para su foto"><div class="photo-img"><svg class="photo-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="17" cy="19" r="3.5" fill="currentColor"/><path d="M8 35 19 24l8 7 5-5 8 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg></div></figure>
+      <svg class="env-front" viewBox="0 0 300 190" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,0 L160,116 L0,190Z" fill="url(#flapL)"/>
+        <path d="M300,0 L140,116 L300,190Z" fill="url(#flapR)"/>
+        <path d="M0,190 L150,92 L300,190Z" fill="url(#flapB)"/>
+        <path d="M0,0 L150,109 L300,0 M0,190 L150,92 L300,190" fill="none" stroke="#3e0c18" stroke-opacity=".35" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <svg class="seal" viewBox="-50 -50 100 100" aria-hidden="true"><use href="#seal"/></svg>
+      <svg class="posy" viewBox="0 0 120 170" aria-hidden="true"><use href="#posy"/></svg>
+    </div>
+  </section>
+
 
   <section class="player" aria-label="Nuestra canción">
-    <p>Dale play y escucha nuestra canción</p>
+    <p>Dale play para escuchar nuestra canción</p>
     <p class="song-title">Por ti me casaré · Eros Ramazzotti</p>
     <div class="track" aria-hidden="true"><span id="song-progress"></span></div>
-    <button class="play" id="play" type="button" aria-label="Reproducir nuestra canción">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path id="play-icon" fill="currentColor" d="M8 5v14l11-7z"/></svg>
-    </button>
+    <div class="controls">
+      <button class="ctl" id="prev" type="button" aria-label="Volver al inicio de la canción"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 6v12L3 12zM20 6v12l-8-6z"/></svg></button>
+      <button class="play" id="play" type="button" aria-label="Reproducir nuestra canción">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path id="play-icon" fill="currentColor" d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button class="ctl" id="next" type="button" aria-label="Adelantar 15 segundos"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 6v12l8-6zM13 6v12l8-6z"/></svg></button>
+    </div>
     <p class="note" id="song-note">Se abre en Apple Music</p>
     <audio id="song" preload="auto"></audio>
   </section>
@@ -393,7 +439,7 @@ p,h1,h2,h3{margin:0}
   </section>
 
   <section class="dress" aria-label="Código de vestimenta">
-    <div class="polaroid" aria-hidden="true"><div class="photo-img"></div></div>
+    <div class="polaroid" aria-hidden="true"><div class="photo-img"><svg class="photo-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="17" cy="19" r="3.5" fill="currentColor"/><path d="M8 35 19 24l8 7 5-5 8 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg></div></div>
     <div class="dress-card">
       <svg class="clip" viewBox="0 0 16 46" aria-hidden="true"><path d="M4,8 V36 a4,4 0 0 0 8,0 V6 a3,3 0 0 0 -6,0 V32" fill="none" stroke="#bdb6a8" stroke-width="1.6" stroke-linecap="round"/></svg>
       <h2 class="title"><span class="cap">D</span>ress code</h2>
@@ -410,6 +456,29 @@ p,h1,h2,h3{margin:0}
       </ul>
       <p class="swatch-names">Lavanda, rosa palo, celeste, verde menta, durazno y amarillo pastel</p>
     </div>
+    <div class="sketch-card" aria-hidden="true">
+      <svg viewBox="0 0 200 170" fill="none" stroke="#5f5a56" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+        <!-- bride -->
+        <ellipse cx="78" cy="31" rx="8" ry="10"/>
+        <path d="M71 26c2-8 13-9 16-1"/><circle cx="85" cy="22" r="3.6"/>
+        <path d="M87 23c12 14 17 52 26 135M70 29c-9 24-12 55-17 92"/>
+        <path d="M75 41v5M81 41v5"/>
+        <path d="M68 52c4-5 16-5 20 0l-2 20H70z"/>
+        <path d="M68 54c-6 10-2 22 6 26M88 54c5 10 0 22-6 26"/>
+        <circle cx="78" cy="81" r="5"/><circle cx="73" cy="85" r="3"/><circle cx="83" cy="85" r="3"/><path d="M78 86v9"/>
+        <path d="M70 72c-4 28-14 63-27 88h70c-12-25-22-60-27-88"/>
+        <path d="M77 92c-2 25-6 48-8 68M82 93c4 25 9 46 13 67"/>
+        <!-- groom -->
+        <ellipse cx="128" cy="30" rx="8.5" ry="10.5"/>
+        <path d="M119 27c1-10 17-11 18-1"/>
+        <path d="M125 40v6M131 40v6"/>
+        <path d="M112 51l13-5 3 12 3-12 13 5 5 47h-7l-1-28-1 34h-24l-1-34-1 28h-7z"/>
+        <path d="M125 46l3 16 3-16M125 51l6 4M131 51l-6 4"/>
+        <path d="M117 104l2 54h7l2-46 2 46h7l2-54"/>
+        <path d="M116 158h11M129 158h11"/>
+        <path d="M30 160c40-3 110-3 150 0" stroke-width=".8" stroke-dasharray="2 3"/>
+      </svg>
+    </div>
   </section>
 
   <p class="quote">Nos encontramos, nos elegimos y hoy queremos compartir con ustedes el comienzo de nuestra vida juntos como casados.</p>
@@ -420,7 +489,7 @@ p,h1,h2,h3{margin:0}
       <p><span class="cap">T</span>u compañía es lo más importante. Si deseas hacernos un obsequio, lo recibiremos con mucho cariño.</p>
     </div>
     <div class="gift-row">
-      <svg class="callas-side" viewBox="0 0 200 150" aria-hidden="true">
+      <svg class="callas-side" viewBox="0 0 200 150" aria-hidden="true" data-parallax="-.05">
         <g transform="translate(100,118) rotate(-88) scale(0.56,0.56) translate(-40,-128)"><use class="" href="#calla"/></g>
         <g transform="translate(95,95) rotate(-68) scale(0.62,0.62) translate(-40,-128)"><use class="" href="#calla"/></g>
       </svg>
@@ -446,14 +515,14 @@ p,h1,h2,h3{margin:0}
 
   <section class="rsvp" aria-label="Confirmación de asistencia">
     <div class="rsvp-stage">
-      <svg class="callas" viewBox="0 0 240 290" aria-hidden="true">
+      <svg class="callas" viewBox="0 0 240 290" aria-hidden="true" data-parallax="-.08">
         <g transform="translate(92,168) rotate(-22) scale(-0.92,0.92) translate(-40,-128)"><use class="sway c" href="#calla"/></g>
         <g transform="translate(150,170) rotate(22) scale(0.9,0.9) translate(-40,-128)"><use class="sway b" href="#calla"/></g>
         <g transform="translate(120,150) rotate(0) scale(1,1) translate(-40,-128)"><use class="sway " href="#calla"/></g>
       </svg>
       <div class="rsvp-env">
         <div class="rsvp-back"></div>
-        <form class="rsvp-card" id="rsvp" novalidate>
+        <form class="rsvp-card" id="rsvp" novalidate data-rise>
           <h2 class="title"><span class="cap">C</span>onfirma tu asistencia</h2>
           <div class="field">
             <label for="rsvp-name">Tu nombre</label>
@@ -564,6 +633,30 @@ function openEnvelope() {
 }
 if (document.documentElement.classList.contains("env-closed")) sealBtn.addEventListener("click", openEnvelope);
 else sealBtn.disabled = true;
+
+document.getElementById("prev").addEventListener("click", () => { if (CONFIG.song) { audio.currentTime = 0; audio.play().catch(() => {}); } });
+document.getElementById("next").addEventListener("click", () => { if (CONFIG.song && audio.duration) audio.currentTime = Math.min(audio.duration - 1, audio.currentTime + 15); });
+
+// Animaciones como en el video: la foto y la tarjeta de confirmación salen de su sobre al aparecer; las flores se mueven suave con el scroll
+if (document.documentElement.classList.contains("js-motion")) {
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+  }), { threshold: 0.3 });
+  document.querySelectorAll("[data-rise]").forEach(el => io.observe(el));
+  const px = [...document.querySelectorAll("[data-parallax]")];
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const mid = innerHeight / 2;
+    px.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > innerHeight + 200) return;
+      el.style.translate = `0 ${((r.top + r.height / 2 - mid) * parseFloat(el.dataset.parallax)).toFixed(1)}px`;
+    });
+  };
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+}
 
 // Regalos
 const giftBtn = document.getElementById("gift-btn");
