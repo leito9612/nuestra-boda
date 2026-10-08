@@ -9,8 +9,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://leito9612.github.io/nuestra-boda-leo-y-rachel/">
 <meta property="og:title" content="Nuestra boda · Leo &amp; Rachel">
-<meta property="og:description" content="Estás invitado a nuestra boda. Toca para abrir tu invitación.">
-<meta property="og:image" content="https://leito9612.github.io/nuestra-boda-leo-y-rachel/vista-previa.jpg">
+<meta property="og:description" content="Estás invitado a nuestra boda. Toca el sello y abre tu invitación.">
+<meta property="og:image" content="https://leito9612.github.io/nuestra-boda-leo-y-rachel/vista-previa-2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -62,49 +62,40 @@ p,h1,h2,h3{margin:0}
 .cap{font-family:var(--script);font-size:2.3em;font-weight:400;text-transform:none;letter-spacing:0;line-height:0;vertical-align:-.18em;margin-right:-.06em}
 .caps{text-transform:uppercase;letter-spacing:.07em}
 
-/* hero */
-.hero-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;transition:min-height 1s cubic-bezier(.4,0,.2,1)}
-.cover-names{font:600 13px/1.4 var(--serif);letter-spacing:.24em;text-transform:uppercase;color:var(--ink);margin-top:-2px}
-.kicker{font:400 50px/1.1 var(--script);color:var(--wine)}
-.hero{position:relative;width:100%;max-width:380px;aspect-ratio:300/350}
-.hero .callas{position:absolute;left:8%;top:0;width:84%;z-index:1}
-.env-back{position:absolute;inset:48% 0 0 0;background:linear-gradient(#5d1727,#4a1020);border-radius:3px;z-index:2;box-shadow:var(--lift)}
-.env-back::before{content:"";position:absolute;inset:0;background:linear-gradient(#ebdcd4,#d8c1b8);clip-path:polygon(3% 0,97% 0,50% 60%)}
-.photo{position:absolute;left:19%;top:28%;width:60%;z-index:3;background:#fff;padding:7px 7px 30px;box-shadow:0 8px 16px -6px rgba(40,20,20,.35);transform:rotate(-5deg)}
+/* cover: the real envelope photo. Inside, pocket and flap are cut from the same photo
+   with matching polygons (photo px / 736x1104) so the flap can lift in 3D around its top edge. */
+.cover{position:relative;box-sizing:border-box;margin-inline:-16px;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding-block:28px 22px;overflow:hidden;isolation:isolate;background:linear-gradient(#b89d8c,#b6998b 50%,#b3958a)}
+.cover-frame{position:relative;width:min(100%,480px);width:min(100%,480px,calc((100svh - 130px) * .6667));aspect-ratio:736/1104;container-type:inline-size}
+.env-layer{position:absolute;inset:0;background:url(sobre.jpg) 0 0/100% 100%}
+.env-photo{z-index:0;-webkit-mask-image:linear-gradient(transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(transparent,#000 5%,#000 95%,transparent)}
+@media (min-width:520px){.env-photo{-webkit-mask-image:linear-gradient(transparent,#000 5%,#000 95%,transparent),linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(transparent,#000 5%,#000 95%,transparent),linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-composite:intersect}}
+.env-inside{z-index:1;background:linear-gradient(165deg,#22060b,#3b0e16 45%,#581a23);clip-path:polygon(2.4% 31.5%,82.4% 15.3%,55.4% 50.4%)}
+.env-pocket{z-index:4;clip-path:polygon(1.09% 31.7%,55.57% 51.81%,83.7% 14.67%,100% 52.08%,100% 62.5%,20.11% 78.62%)}
+.env-flap{z-index:5;clip-path:polygon(0.75% 31.85%,84.05% 14.5%,55.6% 52.7%);transform-origin:42.39% 23.19%;transform:perspective(1100px) rotate3d(.955,-.295,0,0deg);
+  background:radial-gradient(ellipse 13.5% 9% at 51.63% 47.37%,#652a2e 97%,transparent 100%),url(sobre.jpg) 0 0/100% 100%}
+.env-flap::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,#7d353c,#5b2127);opacity:0}
+.env-card{visibility:hidden;position:absolute;z-index:3;left:20.05%;top:24.44%;width:67.93%;height:34.42%;transform:rotate(-17.18deg);background:#f6efe4;box-shadow:0 6px 16px rgba(30,5,8,.35);outline:1px solid rgba(156,122,44,.6);outline-offset:-2.4cqw;display:flex;flex-direction:column;align-items:center;padding-top:5.5cqw;gap:1.2cqw;text-align:center}
+.card-kicker{font:400 34px/1.05 var(--script);font-size:9.6cqw;color:var(--wine)}
+.card-names{font:600 12px/1.3 var(--serif);font-size:3.4cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.card-date{font:500 12px/1.3 var(--serif);font-size:3.4cqw;letter-spacing:.14em;color:var(--muted)}
+.seal-btn{position:absolute;left:51.63%;top:47.37%;width:32.6%;aspect-ratio:1;transform:translate(-50%,-50%) rotate(-12deg);z-index:6;border:0;padding:0;background:none;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.seal-btn:disabled{cursor:default}
+.seal-btn .seal{width:100%;height:100%}
+.seal-btn:focus-visible{outline:2px solid #f3d98a;outline-offset:2px}
+.seal{filter:drop-shadow(0 3px 4px rgba(40,15,5,.5));display:block;overflow:visible}
+.cover-hint{font:italic 600 19px/1.3 var(--serif);color:#3a0c16;letter-spacing:.02em;text-shadow:0 0 14px rgba(255,244,234,.75);text-align:center}
+.scroll-hint{display:none}
 .photo-img{aspect-ratio:1.2;display:grid;place-items:center;background:
   radial-gradient(120% 70% at 30% 100%,#3a3a3a 0 35%,transparent 36%),
   radial-gradient(90% 60% at 85% 100%,#555 0 30%,transparent 31%),
   linear-gradient(#d9d9d9,#9c9c9c 62%,#6e6e6e)}
-.photo-img span{font:600 11px/1 var(--serif);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
-.photo-cap{position:absolute;left:0;right:0;bottom:2px;text-align:center;font:400 20px/1.2 var(--script);color:#4b4446}
-.env-front{position:absolute;left:0;bottom:0;width:100%;height:52%;z-index:4;display:block}
-.hero .gyps{position:absolute;z-index:1;pointer-events:none}
-.hero .gyps-a{right:0;top:21%;width:42%}
-.hero .gyps-b{left:1%;top:25%;width:36%;transform:scaleX(-1)}
-.env-flap{position:absolute;left:0;right:0;top:48%;height:29%;z-index:0;transform-origin:50% 0;transform:perspective(800px) rotateX(180deg);filter:drop-shadow(0 3px 3px rgba(40,5,15,.35))}
-.env-flap i{position:absolute;inset:0;clip-path:polygon(0 0,100% 0,52% 97%,50% 100%,48% 97%);background:linear-gradient(#ead9d1,#d6bfb5)}
-.seal-btn{position:absolute;left:50%;top:76%;width:23%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:6;border:0;padding:0;background:none;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.seal-btn:disabled{cursor:default}
-.seal-btn .seal{width:100%;height:100%}
-.seal-btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
-.open-hint{display:none;font:italic 500 19px/1.3 var(--serif);color:var(--wine);letter-spacing:.02em;margin-top:18px}
-/* closed envelope (set by the script before first paint) */
-.env-closed .hero-wrap{min-height:calc(100vh - 215px);min-height:calc(100svh - 215px);justify-content:center}
-.env-closed.env-open .hero-wrap{min-height:0}
-.env-closed:not(.env-opening) .open-hint{display:block}
-.env-closed:not(.env-open) .page > :not(.hero-wrap):not(.draft){display:none}
-.env-closed .env-flap{transform:perspective(800px) rotateX(0deg);z-index:5}
-.env-closed .env-flap i{background:linear-gradient(170deg,#7a2336,#62182a)}
-.env-closed .hero .photo{opacity:0;transform:translateY(42%) rotate(-5deg)}
-.env-closed .hero .callas{opacity:0;transform:translateY(30%)}
-.env-closed.env-opening .hero .photo{opacity:1;transform:rotate(-5deg);transition:opacity .2s .55s,transform 1.1s cubic-bezier(.2,.7,.2,1) .6s}
-.env-closed.env-opening .hero .callas{opacity:1;transform:none;transition:opacity .5s .85s,transform 1.2s cubic-bezier(.2,.7,.2,1) .8s}
-.env-closed.env-opening .env-flap{animation:flap-open .8s cubic-bezier(.45,.05,.3,1) .2s forwards}
-.env-closed.env-opening .env-flap i{animation:flap-face .8s linear .2s forwards}
-@keyframes flap-open{0%{transform:perspective(800px) rotateX(0deg);z-index:5}50%{z-index:5}51%{z-index:0}100%{transform:perspective(800px) rotateX(180deg);z-index:0}}
-@keyframes flap-face{0%,49.9%{background:linear-gradient(170deg,#7a2336,#62182a)}50%,100%{background:linear-gradient(#ead9d1,#d6bfb5)}}
-.hero .posy{position:absolute;right:-5%;bottom:-12%;width:36%;z-index:6}
-.seal{filter:drop-shadow(0 3px 4px rgba(60,35,10,.4));display:block;overflow:visible}
+/* states (env-closed is added by the script before first paint) */
+.env-closed:not(.env-open) .page{display:none}
+.env-opening .open-hint{display:none}
+.env-open .scroll-hint{display:block}
+.env-opening .env-flap{transform:perspective(1100px) rotate3d(.955,-.295,0,180deg);z-index:2}
+.env-opening .env-flap::after{opacity:1}
+.env-opening .env-card{visibility:visible;transform:translate(-17.1%,-72.9%) rotate(-17.18deg)}
 
 /* music */
 .player{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
@@ -217,15 +208,21 @@ p,h1,h2,h3{margin:0}
 .sign{font:400 44px/1.1 var(--script);color:var(--wine);text-align:center}
 
 @media (prefers-reduced-motion:no-preference){
-  .env-closed:not(.env-opening) .seal-btn::after{content:"";position:absolute;inset:-9%;border-radius:50%;border:2px solid rgba(201,160,67,.8);animation:seal-pulse 2s ease-out infinite}
-  @keyframes seal-pulse{from{transform:scale(.92);opacity:.9}to{transform:scale(1.4);opacity:0}}
+  .env-closed:not(.env-opening) .seal-btn::after{content:"";position:absolute;inset:-4%;border-radius:50%;border:2px solid rgba(243,217,138,.85);animation:seal-pulse 2s ease-out infinite}
+  @keyframes seal-pulse{from{transform:scale(.92);opacity:.9}to{transform:scale(1.35);opacity:0}}
   .env-closed:not(.env-opening) .open-hint{animation:hint 2.4s ease-in-out infinite}
-  @keyframes hint{0%,100%{opacity:1}50%{opacity:.55}}
+  @keyframes hint{0%,100%{opacity:1}50%{opacity:.6}}
   .env-opening .seal-btn .seal{animation:seal-press .5s ease-out}
-  @keyframes seal-press{0%{transform:scale(1)}35%{transform:scale(.86)}70%{transform:scale(1.06)}100%{transform:scale(1)}}
-  .env-open .page > :not(.hero-wrap):not(.draft){animation:reveal .9s cubic-bezier(.2,.7,.2,1) both}
-  .env-open .page > :nth-child(4){animation-delay:.15s}
-  .env-open .page > :nth-child(n+5){animation-delay:.3s}
+  @keyframes seal-press{0%{transform:scale(1)}35%{transform:scale(.86)}70%{transform:scale(1.05)}100%{transform:scale(1)}}
+  .env-opening .env-flap{animation:flap-open 1s cubic-bezier(.45,.05,.3,1) .3s both}
+  .env-opening .env-flap::after{animation:flap-back 1s linear .3s both}
+  @keyframes flap-open{0%{transform:perspective(1100px) rotate3d(.955,-.295,0,0deg);z-index:5}49%{z-index:5}50%{z-index:2}100%{transform:perspective(1100px) rotate3d(.955,-.295,0,180deg);z-index:2}}
+  @keyframes flap-back{0%,49%{opacity:0}50%,100%{opacity:1}}
+  .env-opening .env-card{transition:transform 1.4s cubic-bezier(.2,.7,.2,1) 1.15s}
+  .scroll-hint{animation:nudge 1.8s ease-in-out infinite}
+  @keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+  .env-open .page > *{animation:reveal .9s cubic-bezier(.2,.7,.2,1) both}
+  .env-open .page > :nth-child(n+3){animation-delay:.15s}
   @keyframes reveal{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
   .sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 7s ease-in-out infinite alternate}
   .sway.b{animation-duration:8.5s;animation-delay:-2s}
@@ -250,10 +247,10 @@ p,h1,h2,h3{margin:0}
       <stop offset="0" stop-color="#5d7a39"/><stop offset=".5" stop-color="#86a35a"/><stop offset="1" stop-color="#5d7a39"/>
     </linearGradient>
     <radialGradient id="sealFace" cx=".36" cy=".3" r=".82">
-      <stop offset="0" stop-color="#fff3c4"/><stop offset=".35" stop-color="#ecd27e"/><stop offset=".72" stop-color="#c9a043"/><stop offset="1" stop-color="#8c6a22"/>
+      <stop offset="0" stop-color="#f7e7b4"/><stop offset=".35" stop-color="#dcbd6a"/><stop offset=".72" stop-color="#b48a3a"/><stop offset="1" stop-color="#6f5218"/>
     </radialGradient>
     <radialGradient id="sealInner" cx=".64" cy=".68" r=".78">
-      <stop offset="0" stop-color="#f2dc8e"/><stop offset=".6" stop-color="#d6b45c"/><stop offset="1" stop-color="#ad8733"/>
+      <stop offset="0" stop-color="#e6cc82"/><stop offset=".6" stop-color="#c9a352"/><stop offset="1" stop-color="#9a752c"/>
     </radialGradient>
     <radialGradient id="roseShade">
       <stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#1a0006" stop-opacity=".32"/>
@@ -311,212 +308,6 @@ p,h1,h2,h3{margin:0}
       <circle cx="22" cy="36" r="5" fill="#6c1a2c"/><circle cx="98" cy="40" r="4.2" fill="#7d2a3c"/>
     </g>
 
-<g id="gyps">
-  <g fill="none" stroke="#9c8b70" stroke-width="1.1" stroke-linecap="round">
-    <path d="M8,196 Q40,120 120,40"/>
-    <path d="M36.3,142.3 L33.8,126.4"/>
-    <path d="M49.8,122.1 L45.8,104.7"/>
-    <path d="M64.9,101.8 L83.8,96.4"/>
-    <path d="M81.6,81.3 L81.9,62.7"/>
-    <path d="M100.0,60.7 L116.4,61.2"/>
-    <path d="M10,196 Q70,150 150,96"/>
-    <path d="M54.4,162.8 L61.4,147.0"/>
-    <path d="M72.2,150.0 L75.2,121.5"/>
-    <path d="M90.6,136.9 L107.7,141.3"/>
-    <path d="M109.8,123.5 L114.9,99.6"/>
-    <path d="M129.5,109.9 L155.3,112.8"/>
-    <path d="M6,196 Q18,130 46,60"/>
-    <path d="M16.4,149.3 L39.6,141.2"/>
-    <path d="M21.2,131.7 L15.1,114.3"/>
-    <path d="M26.6,114.0 L49.8,100.4"/>
-    <path d="M32.5,96.1 L26.6,78.2"/>
-    <path d="M39.0,78.1 L54.6,72.6"/>
-  </g>
-  <g fill="#f4ede1" stroke="#c9b694" stroke-width=".6">
-    <circle cx="119.4" cy="41.2" r="2.9"/>
-    <circle cx="124.3" cy="42.1" r="2.6"/>
-    <circle cx="124.3" cy="41.6" r="2.1"/>
-    <circle cx="119.4" cy="40.3" r="2.2"/>
-    <circle cx="113.4" cy="43.4" r="2.3"/>
-    <circle cx="120.9" cy="45.6" r="3.3"/>
-    <circle cx="116.8" cy="38.3" r="3.4"/>
-    <circle cx="34.2" cy="126.9" r="2.5"/>
-    <circle cx="34.2" cy="125.4" r="2.9"/>
-    <circle cx="32.3" cy="124.7" r="2.8"/>
-    <circle cx="34.1" cy="126.5" r="2.4"/>
-    <circle cx="32.7" cy="124.1" r="2.5"/>
-    <circle cx="31.4" cy="125.0" r="2.5"/>
-    <circle cx="40.6" cy="103.8" r="3.0"/>
-    <circle cx="44.4" cy="110.4" r="2.3"/>
-    <circle cx="41.8" cy="106.9" r="2.3"/>
-    <circle cx="45.5" cy="104.7" r="3.0"/>
-    <circle cx="46.1" cy="101.2" r="3.2"/>
-    <circle cx="81.4" cy="95.1" r="3.2"/>
-    <circle cx="86.4" cy="95.4" r="3.0"/>
-    <circle cx="87.7" cy="98.0" r="2.9"/>
-    <circle cx="88.7" cy="96.2" r="2.5"/>
-    <circle cx="80.7" cy="99.0" r="2.1"/>
-    <circle cx="82.8" cy="96.7" r="2.3"/>
-    <circle cx="77.5" cy="66.0" r="2.7"/>
-    <circle cx="83.1" cy="64.8" r="2.5"/>
-    <circle cx="83.6" cy="64.7" r="2.8"/>
-    <circle cx="80.3" cy="57.0" r="3.0"/>
-    <circle cx="118.7" cy="64.5" r="2.1"/>
-    <circle cx="117.0" cy="60.3" r="2.5"/>
-    <circle cx="118.4" cy="63.8" r="2.9"/>
-    <circle cx="116.1" cy="61.9" r="3.2"/>
-    <circle cx="155.6" cy="94.2" r="3.1"/>
-    <circle cx="142.5" cy="98.1" r="3.3"/>
-    <circle cx="147.9" cy="91.4" r="2.6"/>
-    <circle cx="146.6" cy="98.7" r="2.6"/>
-    <circle cx="153.2" cy="104.3" r="2.7"/>
-    <circle cx="154.2" cy="99.4" r="2.2"/>
-    <circle cx="145.6" cy="94.0" r="3.3"/>
-    <circle cx="62.3" cy="148.2" r="2.6"/>
-    <circle cx="61.0" cy="147.5" r="3.2"/>
-    <circle cx="64.2" cy="146.8" r="2.7"/>
-    <circle cx="62.0" cy="147.3" r="2.5"/>
-    <circle cx="61.0" cy="151.9" r="2.3"/>
-    <circle cx="67.1" cy="147.8" r="2.8"/>
-    <circle cx="80.4" cy="120.8" r="3.0"/>
-    <circle cx="75.1" cy="123.7" r="2.3"/>
-    <circle cx="75.7" cy="118.4" r="3.1"/>
-    <circle cx="74.6" cy="122.7" r="3.2"/>
-    <circle cx="80.3" cy="121.0" r="3.1"/>
-    <circle cx="107.6" cy="141.4" r="2.1"/>
-    <circle cx="107.4" cy="142.8" r="3.0"/>
-    <circle cx="110.3" cy="140.5" r="3.3"/>
-    <circle cx="113.4" cy="140.8" r="2.6"/>
-    <circle cx="108.0" cy="142.6" r="2.4"/>
-    <circle cx="108.8" cy="144.9" r="3.3"/>
-    <circle cx="115.2" cy="99.0" r="2.6"/>
-    <circle cx="114.6" cy="98.5" r="3.3"/>
-    <circle cx="111.4" cy="101.2" r="2.2"/>
-    <circle cx="155.1" cy="111.8" r="2.3"/>
-    <circle cx="158.4" cy="117.2" r="3.1"/>
-    <circle cx="158.3" cy="116.7" r="3.4"/>
-    <circle cx="44.3" cy="57.4" r="2.8"/>
-    <circle cx="46.1" cy="60.1" r="3.4"/>
-    <circle cx="43.2" cy="56.2" r="3.3"/>
-    <circle cx="38.8" cy="63.2" r="3.2"/>
-    <circle cx="46.5" cy="62.2" r="2.5"/>
-    <circle cx="46.3" cy="65.3" r="2.4"/>
-    <circle cx="45.0" cy="60.6" r="3.3"/>
-    <circle cx="42.0" cy="136.5" r="2.3"/>
-    <circle cx="41.4" cy="143.7" r="3.2"/>
-    <circle cx="40.2" cy="137.6" r="3.1"/>
-    <circle cx="40.1" cy="141.9" r="2.9"/>
-    <circle cx="39.9" cy="141.5" r="3.0"/>
-    <circle cx="36.7" cy="140.6" r="3.1"/>
-    <circle cx="11.7" cy="114.2" r="3.1"/>
-    <circle cx="17.4" cy="112.9" r="2.9"/>
-    <circle cx="12.0" cy="114.2" r="3.0"/>
-    <circle cx="48.2" cy="95.4" r="3.3"/>
-    <circle cx="49.6" cy="103.7" r="3.3"/>
-    <circle cx="50.3" cy="99.7" r="2.3"/>
-    <circle cx="49.4" cy="100.5" r="2.4"/>
-    <circle cx="27.3" cy="77.7" r="3.0"/>
-    <circle cx="26.1" cy="77.5" r="3.2"/>
-    <circle cx="27.9" cy="78.0" r="3.3"/>
-    <circle cx="56.0" cy="74.8" r="2.8"/>
-    <circle cx="54.0" cy="73.6" r="2.5"/>
-    <circle cx="54.6" cy="72.4" r="2.8"/>
-    <circle cx="54.5" cy="72.6" r="2.5"/>
-  </g>
-  <g fill="#b39b74">
-    <circle cx="119.4" cy="41.2" r=".8"/>
-    <circle cx="124.3" cy="42.1" r=".8"/>
-    <circle cx="124.3" cy="41.6" r=".8"/>
-    <circle cx="119.4" cy="40.3" r=".8"/>
-    <circle cx="113.4" cy="43.4" r=".8"/>
-    <circle cx="120.9" cy="45.6" r=".8"/>
-    <circle cx="116.8" cy="38.3" r=".8"/>
-    <circle cx="34.2" cy="126.9" r=".8"/>
-    <circle cx="34.2" cy="125.4" r=".8"/>
-    <circle cx="32.3" cy="124.7" r=".8"/>
-    <circle cx="34.1" cy="126.5" r=".8"/>
-    <circle cx="32.7" cy="124.1" r=".8"/>
-    <circle cx="31.4" cy="125.0" r=".8"/>
-    <circle cx="40.6" cy="103.8" r=".8"/>
-    <circle cx="44.4" cy="110.4" r=".8"/>
-    <circle cx="41.8" cy="106.9" r=".8"/>
-    <circle cx="45.5" cy="104.7" r=".8"/>
-    <circle cx="46.1" cy="101.2" r=".8"/>
-    <circle cx="81.4" cy="95.1" r=".8"/>
-    <circle cx="86.4" cy="95.4" r=".8"/>
-    <circle cx="87.7" cy="98.0" r=".8"/>
-    <circle cx="88.7" cy="96.2" r=".8"/>
-    <circle cx="80.7" cy="99.0" r=".8"/>
-    <circle cx="82.8" cy="96.7" r=".8"/>
-    <circle cx="77.5" cy="66.0" r=".8"/>
-    <circle cx="83.1" cy="64.8" r=".8"/>
-    <circle cx="83.6" cy="64.7" r=".8"/>
-    <circle cx="80.3" cy="57.0" r=".8"/>
-    <circle cx="118.7" cy="64.5" r=".8"/>
-    <circle cx="117.0" cy="60.3" r=".8"/>
-    <circle cx="118.4" cy="63.8" r=".8"/>
-    <circle cx="116.1" cy="61.9" r=".8"/>
-    <circle cx="155.6" cy="94.2" r=".8"/>
-    <circle cx="142.5" cy="98.1" r=".8"/>
-    <circle cx="147.9" cy="91.4" r=".8"/>
-    <circle cx="146.6" cy="98.7" r=".8"/>
-    <circle cx="153.2" cy="104.3" r=".8"/>
-    <circle cx="154.2" cy="99.4" r=".8"/>
-    <circle cx="145.6" cy="94.0" r=".8"/>
-    <circle cx="62.3" cy="148.2" r=".8"/>
-    <circle cx="61.0" cy="147.5" r=".8"/>
-    <circle cx="64.2" cy="146.8" r=".8"/>
-    <circle cx="62.0" cy="147.3" r=".8"/>
-    <circle cx="61.0" cy="151.9" r=".8"/>
-    <circle cx="67.1" cy="147.8" r=".8"/>
-    <circle cx="80.4" cy="120.8" r=".8"/>
-    <circle cx="75.1" cy="123.7" r=".8"/>
-    <circle cx="75.7" cy="118.4" r=".8"/>
-    <circle cx="74.6" cy="122.7" r=".8"/>
-    <circle cx="80.3" cy="121.0" r=".8"/>
-    <circle cx="107.6" cy="141.4" r=".8"/>
-    <circle cx="107.4" cy="142.8" r=".8"/>
-    <circle cx="110.3" cy="140.5" r=".8"/>
-    <circle cx="113.4" cy="140.8" r=".8"/>
-    <circle cx="108.0" cy="142.6" r=".8"/>
-    <circle cx="108.8" cy="144.9" r=".8"/>
-    <circle cx="115.2" cy="99.0" r=".8"/>
-    <circle cx="114.6" cy="98.5" r=".8"/>
-    <circle cx="111.4" cy="101.2" r=".8"/>
-    <circle cx="155.1" cy="111.8" r=".8"/>
-    <circle cx="158.4" cy="117.2" r=".8"/>
-    <circle cx="158.3" cy="116.7" r=".8"/>
-    <circle cx="44.3" cy="57.4" r=".8"/>
-    <circle cx="46.1" cy="60.1" r=".8"/>
-    <circle cx="43.2" cy="56.2" r=".8"/>
-    <circle cx="38.8" cy="63.2" r=".8"/>
-    <circle cx="46.5" cy="62.2" r=".8"/>
-    <circle cx="46.3" cy="65.3" r=".8"/>
-    <circle cx="45.0" cy="60.6" r=".8"/>
-    <circle cx="42.0" cy="136.5" r=".8"/>
-    <circle cx="41.4" cy="143.7" r=".8"/>
-    <circle cx="40.2" cy="137.6" r=".8"/>
-    <circle cx="40.1" cy="141.9" r=".8"/>
-    <circle cx="39.9" cy="141.5" r=".8"/>
-    <circle cx="36.7" cy="140.6" r=".8"/>
-    <circle cx="11.7" cy="114.2" r=".8"/>
-    <circle cx="17.4" cy="112.9" r=".8"/>
-    <circle cx="12.0" cy="114.2" r=".8"/>
-    <circle cx="48.2" cy="95.4" r=".8"/>
-    <circle cx="49.6" cy="103.7" r=".8"/>
-    <circle cx="50.3" cy="99.7" r=".8"/>
-    <circle cx="49.4" cy="100.5" r=".8"/>
-    <circle cx="27.3" cy="77.7" r=".8"/>
-    <circle cx="26.1" cy="77.5" r=".8"/>
-    <circle cx="27.9" cy="78.0" r=".8"/>
-    <circle cx="56.0" cy="74.8" r=".8"/>
-    <circle cx="54.0" cy="73.6" r=".8"/>
-    <circle cx="54.6" cy="72.4" r=".8"/>
-    <circle cx="54.5" cy="72.6" r=".8"/>
-  </g>
-</g>
-
-
     <g id="seal">
       <circle r="44" fill="url(#sealFace)" filter="url(#wobble)"/>
       <ellipse cx="-17" cy="-22" rx="15" ry="7" transform="rotate(-35 -17 -22)" fill="#fffbe8" opacity=".45"/>
@@ -530,39 +321,28 @@ p,h1,h2,h3{margin:0}
 
 <script>document.documentElement.classList.add("env-closed")</script>
 
+<header class="cover">
+  <div class="cover-frame">
+    <div class="env-layer env-photo" role="img" aria-label="Sobre color vino cerrado con un sello de cera dorado, sobre encaje y flores secas"></div>
+    <div class="env-inside" aria-hidden="true"></div>
+    <div class="env-card" aria-hidden="true">
+      <p class="card-kicker">¡Nos casamos!</p>
+      <p class="card-names">Leo &amp; Rachel</p>
+      <p class="card-date">13 · 03 · 2027</p>
+    </div>
+    <div class="env-layer env-pocket" aria-hidden="true"></div>
+    <div class="env-layer env-flap" aria-hidden="true"></div>
+    <button class="seal-btn" id="open-seal" type="button" aria-label="Abrir la invitación">
+      <svg class="seal" viewBox="-50 -50 100 100" aria-hidden="true"><use href="#seal"/></svg>
+    </button>
+  </div>
+  <p class="cover-hint open-hint">Toca el sello para abrir</p>
+  <p class="cover-hint scroll-hint">Desliza para ver la invitación ↓</p>
+</header>
+
 <main class="page">
   <p class="draft">Borrador · horarios de ejemplo</p>
 
-  <header class="hero-wrap">
-    <p class="kicker">¡Nos casamos!</p>
-    <p class="cover-names">Leo &amp; Rachel</p>
-    <div class="hero">
-      <svg class="gyps gyps-a" viewBox="0 0 160 200" aria-hidden="true"><use href="#gyps"/></svg>
-      <svg class="gyps gyps-b" viewBox="0 0 160 200" aria-hidden="true"><use href="#gyps"/></svg>
-      <svg class="callas" viewBox="0 0 240 290" aria-hidden="true">
-        <g transform="translate(92,168) rotate(-22) scale(-0.92,0.92) translate(-40,-128)"><use class="sway b" href="#calla"/></g>
-        <g transform="translate(150,170) rotate(22) scale(0.9,0.9) translate(-40,-128)"><use class="sway c" href="#calla"/></g>
-        <g transform="translate(120,150) rotate(0) scale(1,1) translate(-40,-128)"><use class="sway " href="#calla"/></g>
-      </svg>
-      <div class="env-flap" aria-hidden="true"><i></i></div>
-      <div class="env-back"></div>
-      <figure class="photo" style="margin:0">
-        <div class="photo-img"><span>Su foto aquí</span></div>
-        <figcaption class="photo-cap">13 · 03 · 2027</figcaption>
-      </figure>
-      <svg class="env-front" viewBox="0 0 300 190" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,0 L160,116 L0,190Z" fill="url(#flapL)"/>
-        <path d="M300,0 L140,116 L300,190Z" fill="url(#flapR)"/>
-        <path d="M0,190 L150,92 L300,190Z" fill="url(#flapB)"/>
-        <path d="M0,0 L150,109 L300,0 M0,190 L150,92 L300,190" fill="none" stroke="#3e0c18" stroke-opacity=".35" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      </svg>
-      <button class="seal-btn" id="open-seal" type="button" aria-label="Abrir la invitación">
-        <svg class="seal" viewBox="-50 -50 100 100" aria-hidden="true"><use href="#seal"/></svg>
-      </button>
-      <svg class="posy" viewBox="0 0 120 170" aria-hidden="true"><use href="#posy"/></svg>
-    </div>
-    <p class="open-hint">Toca el sello para abrir</p>
-  </header>
 
   <section class="player" aria-label="Nuestra canción">
     <p>Dale play y escucha nuestra canción</p>
@@ -768,7 +548,7 @@ audio.addEventListener("timeupdate", () => {
   if (audio.duration) progress.style.width = (audio.currentTime / audio.duration * 100) + "%";
 });
 
-// Sobre: al tocar el sello suena la canción, se abre la solapa y aparecen las secciones
+// Sobre: al tocar el sello suena la canción, se abre la solapa, sale la tarjeta y aparece la invitación
 const sealBtn = document.getElementById("open-seal");
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 function openEnvelope() {
@@ -777,9 +557,10 @@ function openEnvelope() {
   if (CONFIG.song) audio.play().catch(() => {});
   sealBtn.disabled = true;
   sealBtn.setAttribute("aria-label", "Invitación abierta");
-  if (reduceMotion) { root.classList.remove("env-closed"); return; }
   root.classList.add("env-opening");
-  setTimeout(() => root.classList.add("env-open"), 1500);
+  if (reduceMotion) { root.classList.add("env-open"); return; }
+  setTimeout(() => root.classList.add("env-open"), 2500);
+  setTimeout(() => document.querySelector(".page").scrollIntoView({ behavior: "smooth", block: "start" }), 3100);
 }
 if (document.documentElement.classList.contains("env-closed")) sealBtn.addEventListener("click", openEnvelope);
 else sealBtn.disabled = true;
