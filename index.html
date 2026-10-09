@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<script>(function(){var V="1791557536";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
+<script>(function(){var V="1791557649";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#6c1d2d">
@@ -266,7 +266,7 @@ p,h1,h2,h3{margin:0}
   @keyframes flap-open{0%{transform:perspective(1100px) rotate3d(.955,-.295,0,0deg);z-index:5}49%{z-index:5}50%{z-index:2}100%{transform:perspective(1100px) rotate3d(.955,-.295,0,180deg);z-index:2}}
   @keyframes flap-back{0%,49%{opacity:0}50%,100%{opacity:1}}
   .env-opening .env-card{transition:transform 1.4s cubic-bezier(.2,.7,.2,1) 1.15s}
-  .scroll-hint,.hero-chev{animation:nudge 1.8s ease-in-out infinite}
+  .hero-chev{animation:nudge 1.8s ease-in-out infinite}
   @keyframes nudge{0%,100%{translate:0 0}50%{translate:0 5px}}
   .js-motion .cheers-wrap.in .pair{animation:cg-sway 6s ease-in-out infinite alternate}
   .js-motion .cheers-wrap.in .fl-l{animation:cg-toast-l 5s cubic-bezier(.45,.05,.3,1) .3s infinite both}
@@ -465,6 +465,24 @@ section[id]{scroll-margin-top:62px}
 .lang-menu button[aria-pressed="true"]{background:#f7eadf;color:#5a1222}
 html[lang="en"] .card-kicker{font-size:7.2cqw;line-height:1.15}
 @media (prefers-reduced-motion:no-preference){.env-open .lang-card{animation:lang-in .7s ease-out both}@keyframes lang-in{from{opacity:0;transform:translateY(6px)}}}
+/* modern scroll cue under the opened envelope: mouse capsule with a sliding dot, spaced caps, cascading chevrons */
+.scroll-cue{display:none;flex-direction:column;align-items:center;gap:10px;padding:6px 14px;border:0;background:none;color:#4a0f1c;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.env-open .scroll-cue{display:flex}
+.sc-mouse{position:relative;width:22px;height:36px;box-sizing:border-box;border:1.6px solid currentColor;border-radius:12px;background:rgba(255,248,240,.35);box-shadow:0 0 14px rgba(255,244,234,.7),inset 0 0 6px rgba(255,255,255,.4)}
+.sc-wheel{position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:currentColor}
+.sc-text{font:600 11px/1.4 var(--serif);letter-spacing:.32em;margin-right:-.32em;text-transform:uppercase;text-shadow:0 0 12px rgba(255,244,234,.85)}
+.sc-chevs{display:flex;flex-direction:column;align-items:center}
+.sc-chevs svg{width:16px;height:10px;display:block;margin-top:-2px}
+.scroll-cue:focus-visible{outline:2px solid #4a0f1c;outline-offset:4px;border-radius:12px}
+@media (prefers-reduced-motion:no-preference){
+  .env-open .scroll-cue{animation:sc-in .9s ease-out both}
+  @keyframes sc-in{from{opacity:0;transform:translateY(10px)}}
+  .env-open .sc-wheel{animation:sc-wheel 1.9s cubic-bezier(.6,0,.4,1) infinite}
+  @keyframes sc-wheel{0%{opacity:0;transform:translateY(0)}20%{opacity:1}70%{opacity:1;transform:translateY(12px)}100%{opacity:0;transform:translateY(14px)}}
+  .env-open .sc-chevs svg{animation:sc-chev 1.9s ease-in-out infinite}
+  .env-open .sc-chevs svg:nth-child(2){animation-delay:.25s}
+  @keyframes sc-chev{0%,100%{opacity:.15;transform:translateY(-2px)}50%{opacity:1;transform:translateY(2px)}}
+}
 </style>
 
 <script>document.documentElement.classList.add("env-closed");if(matchMedia("(prefers-reduced-motion: no-preference)").matches)document.documentElement.classList.add("js-motion")</script>
@@ -487,7 +505,7 @@ html[lang="en"] .card-kicker{font-size:7.2cqw;line-height:1.15}
     </button>
   </div>
   <p class="cover-hint open-hint" data-en="Tap the seal to open">Toca el sello para abrir</p>
-  <p class="cover-hint scroll-hint" data-en="Scroll down to see the invitation ↓">Desliza para ver la invitación ↓</p>
+  <button class="scroll-cue" id="scroll-cue" type="button" aria-label="Desliza para ver la invitación" data-en-aria-label="Scroll down to see the invitation"><span class="sc-mouse" aria-hidden="true"><span class="sc-wheel"></span></span><span class="sc-text" aria-hidden="true" data-en="Scroll to see the invitation">Desliza para ver la invitación</span><span class="sc-chevs" aria-hidden="true"><svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 2l6 6 6-6"/></svg><svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 2l6 6 6-6"/></svg></span></button>
 </header>
 
 <header class="topbar" id="topbar">
@@ -1051,6 +1069,9 @@ function setLang(l) {
 }
 document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
 try { if (localStorage.getItem("boda-lang") === "en") setLang("en"); } catch (e) {}
+
+// Indicador para deslizar: al tocarlo baja suavemente a la invitación
+document.getElementById("scroll-cue").addEventListener("click", () => hero.scrollIntoView({ behavior: motion ? "smooth" : "auto" }));
 </script>
 
 </body>
