@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<script>(function(){var V="1791525520";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
+<script>(function(){var V="1791525659";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#6c1d2d">
@@ -393,8 +393,6 @@ section[id]{scroll-margin-top:62px}
 .prog>.corner{position:absolute;z-index:0}
 .corner-tr{top:0;right:0;width:136px;-webkit-mask-image:linear-gradient(transparent,#000 22px);mask-image:linear-gradient(transparent,#000 22px)}
 .corner-bl{left:0;bottom:0;width:86px}
-.countdown .corner-tr{width:128px}
-.countdown .corner-bl{bottom:-64px}
 /* watercolour wine branches + gold line leaves, cut out of the couple's program mockup (leaves recoloured green -> wine) */
 .c-rama-tl{top:0;left:0;width:150px;-webkit-mask-image:linear-gradient(transparent,#000 16px);mask-image:linear-gradient(transparent,#000 16px)}
 .c-linea-tr{top:0;right:0;width:90px;-webkit-mask-image:linear-gradient(transparent,#000 14px);mask-image:linear-gradient(transparent,#000 14px)}
@@ -404,7 +402,6 @@ section[id]{scroll-margin-top:62px}
 .c-linea-bl{bottom:0;left:0;width:52px;-webkit-mask-image:linear-gradient(#000 calc(100% - 12px),transparent);mask-image:linear-gradient(#000 calc(100% - 12px),transparent)}
 .gifts .c-rama-tl,.rsvp .c-rama-tl{width:138px}
 .gifts .c-linea-tr,.rsvp .c-linea-tr{width:84px}
-.rsvp .c-rama-br{bottom:-92px}
 /* dress code, after the couple's reference infographic: monogram, script title, two figures, pastel swatches, colours to avoid */
 .dress{padding:54px 24px 46px;gap:0}
 .dress>*{position:relative;z-index:1}
@@ -442,6 +439,9 @@ section[id]{scroll-margin-top:62px}
 .dc-close em{color:#6b5a5e}
 .dc-end{margin-top:12px;color:var(--accent)}
 .dc-end svg{width:16px;height:16px;display:block}
+.c-rama-tr{top:0;right:0;width:124px;transform:scaleX(-1);-webkit-mask-image:linear-gradient(transparent,#000 16px);mask-image:linear-gradient(transparent,#000 16px)}
+.countdown .c-rama-bl{bottom:-46px}
+.foot-leaf{position:absolute;right:0;bottom:23px;width:66px;height:auto;transform:scaleX(-1);opacity:.75;pointer-events:none}
 </style>
 
 <script>document.documentElement.classList.add("env-closed");if(matchMedia("(prefers-reduced-motion: no-preference)").matches)document.documentElement.classList.add("js-motion")</script>
@@ -497,7 +497,7 @@ section[id]{scroll-margin-top:62px}
   </section>
 
   <section class="sec countdown" id="cuenta" aria-label="Cuenta regresiva">
-    <img class="corner corner-tr" src="rosas-sup.webp?v=ae46af5f" alt="" width="336" height="353" decoding="async"><img class="corner corner-bl" src="rosas-inf.webp?v=76b689f3" alt="" width="214" height="603" decoding="async">
+    <img class="corner c-rama-tr" src="rama-sup.webp?v=dab8ab62" alt="" width="465" height="469" decoding="async"><img class="corner c-rama-bl" src="rama-inf.webp?v=6598343a" alt="" width="269" height="524" loading="lazy" decoding="async">
     <div class="reveal cheers-wrap"><span class="cw-side"><svg class="sprig" viewBox="0 0 80 30" aria-hidden="true"><path d="M14 15C34 15 58 14 77 22" fill="none" stroke="#6c1d2d" stroke-width="1.3" stroke-linecap="round"/><path d="M17 15C12.5 11.8 5.8 12.4 2 15C5.8 17.6 12.5 18.2 17 15ZM24 15C23.0 10.4 18.3 7.6 14.5 7.6C15.4 11.3 19.3 15.1 24 15ZM24 15C19.3 14.9 15.4 18.7 14.5 22.4C18.3 22.4 23.0 19.6 24 15ZM33 15C32.1 9.3 26.6 5.4 21.9 5.0C22.7 9.6 27.3 14.7 33 15ZM33 15C27.3 15.3 22.7 20.4 21.9 25.0C26.6 24.6 32.1 20.7 33 15ZM43 15C42.3 8.6 36.5 3.6 31.2 2.8C31.8 8.1 36.6 14.1 43 15ZM43 15C36.6 15.9 31.8 21.9 31.2 27.2C36.5 26.4 42.3 21.4 43 15Z" fill="#6c1d2d"/></svg></span><svg class="cheers" viewBox="0 0 200 200" aria-hidden="true">
    <defs>
     <radialGradient id="cg-night" cx=".5" cy=".56" r=".62"><stop offset="0" stop-color="#93243a"/><stop offset=".5" stop-color="#5c1123"/><stop offset="1" stop-color="#300812"/></radialGradient>
@@ -625,7 +625,7 @@ section[id]{scroll-margin-top:62px}
   <div class="divider reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19.5s-6.8-4.3-6.8-9.6a3.9 3.9 0 0 1 6.8-2.5 3.9 3.9 0 0 1 6.8 2.5c0 5.3-6.8 9.6-6.8 9.6z"/></svg></div>
 
   <section class="sec gifts framed" id="regalos" aria-label="Regalos">
-    <img class="corner c-rama-tl" src="rama-sup.webp?v=dab8ab62" alt="" width="465" height="469" loading="lazy" decoding="async"><img class="corner c-linea-tr" src="linea-sup.webp?v=3e8efabb" alt="" width="267" height="224" loading="lazy" decoding="async"><img class="corner c-rama-bl" src="rama-inf.webp?v=6598343a" alt="" width="269" height="524" loading="lazy" decoding="async">
+    <img class="corner c-linea-tr" src="linea-sup.webp?v=3e8efabb" alt="" width="267" height="224" loading="lazy" decoding="async"><img class="corner c-rama-bl" src="rama-inf.webp?v=6598343a" alt="" width="269" height="524" loading="lazy" decoding="async">
     <h2 class="vh-text">Regalos</h2>
     <div class="seal-row reveal"><svg class="wax" aria-hidden="true"><use href="#seal-lr"/></svg></div>
     <p class="gift-text reveal"><span class="gcap">S</span>u compañía es lo más importante. Si desean hacernos un obsequio, lo recibiremos con mucho cariño.</p>
@@ -718,7 +718,7 @@ section[id]{scroll-margin-top:62px}
   <div class="divider reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19.5s-6.8-4.3-6.8-9.6a3.9 3.9 0 0 1 6.8-2.5 3.9 3.9 0 0 1 6.8 2.5c0 5.3-6.8 9.6-6.8 9.6z"/></svg></div>
 
   <section class="sec rsvp framed" id="rsvp-sec" aria-label="Confirmar asistencia">
-    <img class="corner c-rama-tl" src="rama-sup.webp?v=dab8ab62" alt="" width="465" height="469" loading="lazy" decoding="async"><img class="corner c-linea-tr" src="linea-sup.webp?v=3e8efabb" alt="" width="267" height="224" loading="lazy" decoding="async"><img class="corner c-rama-br" src="rama-inf.webp?v=6598343a" alt="" width="269" height="524" loading="lazy" decoding="async">
+    <img class="corner c-rama-tl" src="rama-sup.webp?v=dab8ab62" alt="" width="465" height="469" loading="lazy" decoding="async"><img class="corner c-linea-tr" src="linea-sup.webp?v=3e8efabb" alt="" width="267" height="224" loading="lazy" decoding="async">
     <div class="seal-row reveal"><svg class="wax" aria-hidden="true"><use href="#seal-env"/></svg></div>
     <p class="rsvp-eyebrow reveal">Por favor díganos si puede asistir</p>
     <h2 class="rsvp-title reveal">Confirmar asistencia</h2>
@@ -773,6 +773,7 @@ section[id]{scroll-margin-top:62px}
   </section>
 
   <footer class="foot">
+    <img class="foot-leaf" src="linea-inf.webp?v=4c6e26ef" alt="" width="148" height="246" loading="lazy" decoding="async">
     <button class="top-link" type="button" id="to-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>Volver arriba<span class="chev-d" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button>
     <p class="foot-names">Rachel &amp; Leo</p>
     <div class="foot-div" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19.5s-6.8-4.3-6.8-9.6a3.9 3.9 0 0 1 6.8-2.5 3.9 3.9 0 0 1 6.8 2.5c0 5.3-6.8 9.6-6.8 9.6z"/></svg></div>
