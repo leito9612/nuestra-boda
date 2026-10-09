@@ -212,6 +212,10 @@ p,h1,h2,h3{margin:0}
 .send-btn .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:13px}
 .send-btn.done{background:#f6eaec}
 .send-btn.done .n{background:#3c0d18}
+.manual{display:flex;flex-direction:column;gap:12px}
+.manual[hidden],.thanks[hidden]{display:none}
+.thanks{text-align:center;display:flex;flex-direction:column;gap:6px;padding:10px 0}
+.thanks-title{font:400 40px/1.1 var(--script);color:var(--accent)}
 .deadline{font:italic 400 15px/1.4 var(--serif);color:var(--muted)}
 
 /* footer */
@@ -374,13 +378,6 @@ p,h1,h2,h3{margin:0}
   <div class="divider reveal" aria-hidden="true"><span>+</span></div>
 
   <section class="sec" aria-label="Regalos">
-    <div class="reveal"><svg class="icon" viewBox="0 0 120 120" aria-hidden="true">
-   <path d="M54 70l-8 34M60 70v36M66 70l8 34" stroke="#8c3445" stroke-width="2.4"/>
-   <path d="M50 84c6 6 14 6 20 0l6 26-8-4-8 4-8-4-8 4z" fill="#8c3445" opacity=".9"/>
-   <g fill="#c98d98"><ellipse cx="36" cy="54" rx="10" ry="4" transform="rotate(-30 36 54)"/><ellipse cx="84" cy="52" rx="10" ry="4" transform="rotate(28 84 52)"/><ellipse cx="60" cy="26" rx="8" ry="3.5" transform="rotate(-80 60 26)"/></g>
-   <circle cx="46" cy="52" r="11" fill="#f2c9d0"/><circle cx="72" cy="50" r="11" fill="#f7e2e6"/><circle cx="60" cy="40" r="12" fill="#e9aab6"/><circle cx="58" cy="62" r="10" fill="#fbeff0"/><circle cx="76" cy="66" r="7" fill="#f2c9d0"/><circle cx="42" cy="66" r="7" fill="#f7e2e6"/>
-   <g fill="none" stroke="#c98896" stroke-width="1" opacity=".7"><path d="M54 40c2-3 9-3 11 1M49 52c1-3 5-4 7-1M66 50c2-3 7-3 9 0"/></g></svg></div>
-    <p class="eyebrow heart-label reveal">Lluvia de sobres <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-8-5-8-11.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.8C20 16 12 21 12 21z"/></svg></p>
     <h2 class="vh-text">Regalos</h2>
     <div class="gift reveal">
       <div class="box gift-card">
@@ -444,11 +441,17 @@ p,h1,h2,h3{margin:0}
         <div class="f"><label for="r-msg">Mensaje para los novios (opcional)</label><textarea id="r-msg" name="msg"></textarea></div>
       </div>
       <div class="step" data-step="3" hidden>
-        <p class="step-title">Enviar por WhatsApp</p>
-        <p class="summary" id="r-summary"></p>
-        <p class="eyebrow" style="text-align:center">Envíalo a los dos números</p>
-        <a class="send-btn" id="send-0" target="_blank" rel="noopener"><span class="n">1</span><span class="lb"></span></a>
-        <a class="send-btn" id="send-1" target="_blank" rel="noopener"><span class="n">2</span><span class="lb"></span></a>
+        <div class="thanks" id="r-thanks" hidden>
+          <p class="thanks-title">¡Gracias!</p>
+          <p id="r-thanks-text">Tu confirmación ya les llegó a Rachel y Leo por WhatsApp.</p>
+        </div>
+        <div class="manual" id="r-manual">
+          <p class="step-title">Enviar por WhatsApp</p>
+          <p class="summary" id="r-summary"></p>
+          <p class="eyebrow" style="text-align:center">Envíalo a los dos números</p>
+          <a class="send-btn" id="send-0" target="_blank" rel="noopener"><span class="n">1</span><span class="lb"></span></a>
+          <a class="send-btn" id="send-1" target="_blank" rel="noopener"><span class="n">2</span><span class="lb"></span></a>
+        </div>
       </div>
       <p class="err" id="r-err" role="alert" hidden></p>
       <div class="nav">
@@ -476,6 +479,11 @@ p,h1,h2,h3{margin:0}
 const CONFIG = {
   wedding: "2027-03-13T17:00:00-05:00",
   whatsapp: ["17862706399", "17868781706"], // números de los novios, con código de país, solo dígitos
+  // Aviso automático por WhatsApp a los novios (CallMeBot). Cuando cada novio active su número, pon aquí su apikey.
+  notify: [
+    { phone: "+17862706399", apikey: "" },
+    { phone: "+17868781706", apikey: "" }
+  ],
   song: "cancion.mp4"
 };
 const root = document.documentElement;
@@ -596,8 +604,10 @@ function show(n) {
   pips.forEach((p, i) => p.classList.toggle("on", i === n));
   backBtn.hidden = n === 0;
   nextBtn.hidden = n === 3;
+  nextBtn.textContent = n === 2 ? "Confirmar asistencia" : "Siguiente";
   errEl.hidden = true;
 }
+const autoNotify = () => CONFIG.notify.every(n => n.apikey);
 function fail(msg) { errEl.textContent = msg; errEl.hidden = false; }
 function buildMessage() {
   const a = form.attend.value;
@@ -611,7 +621,7 @@ function buildMessage() {
   if (val("r-msg")) lines.push(`Mensaje: ${val("r-msg")}`);
   return lines.join("\n");
 }
-form.addEventListener("submit", e => {
+form.addEventListener("submit", async e => {
   e.preventDefault();
   if (step === 0) {
     if (!val("r-name")) return fail("Escribe tu nombre completo.");
@@ -622,6 +632,18 @@ form.addEventListener("submit", e => {
   if (step === 1) return show(2);
   if (step === 2) {
     const msg = buildMessage();
+    if (autoNotify()) {
+      nextBtn.disabled = true;
+      nextBtn.textContent = "Enviando…";
+      const note = `Nueva confirmación · Boda Rachel & Leo\n${msg}`;
+      await Promise.all(CONFIG.notify.map(n => fetch(`https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(n.phone)}&text=${encodeURIComponent(note)}&apikey=${encodeURIComponent(n.apikey)}`, { mode: "no-cors", keepalive: true }).catch(() => {})));
+      nextBtn.disabled = false;
+      document.getElementById("r-thanks").hidden = false;
+      document.getElementById("r-manual").hidden = true;
+      show(3);
+      backBtn.hidden = true;
+      return;
+    }
     document.getElementById("r-summary").textContent = msg;
     CONFIG.whatsapp.forEach((num, i) => {
       const a = document.getElementById("send-" + i);
