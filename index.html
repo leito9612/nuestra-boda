@@ -507,12 +507,14 @@ const CONFIG = {
     { phone: "+17862706399", apikey: "" },
     { phone: "+17868781706", apikey: "" }
   ],
-  song: "cancion.mp4"
+  song: "cancion.mp4",
+  // Segundo donde arranca la canción: 5 s antes de que Eros cante "Por ti me casaré" (17.6 s)
+  songStart: 12.6
 };
 const root = document.documentElement;
 const motion = root.classList.contains("js-motion");
 
-// Música: botón verde fijo abajo a la derecha
+// Música: botón vino fijo abajo a la derecha
 const audio = document.getElementById("song");
 const soundBtn = document.getElementById("sound");
 const soundIcon = document.getElementById("sound-icon");
@@ -525,9 +527,18 @@ const syncSound = () => {
   soundBtn.setAttribute("aria-pressed", String(on));
   soundBtn.setAttribute("aria-label", on ? "Pausar la música" : "Reproducir la música");
 };
+// La primera vez que suena, empieza en CONFIG.songStart (si aún no cargó, el navegador lo aplica al cargar)
+let songStarted = false;
+function playSong() {
+  if (!songStarted) {
+    songStarted = true;
+    try { audio.currentTime = CONFIG.songStart || 0; } catch (e) {}
+  }
+  return audio.play().catch(() => {});
+}
 audio.addEventListener("play", syncSound);
 audio.addEventListener("pause", syncSound);
-soundBtn.addEventListener("click", () => { if (audio.paused) audio.play().catch(() => {}); else audio.pause(); });
+soundBtn.addEventListener("click", () => { if (audio.paused) playSong(); else audio.pause(); });
 syncSound();
 
 // Sobre de la portada: al tocar el sello suena la canción, se abre y aparece la invitación
@@ -535,7 +546,7 @@ const sealBtn = document.getElementById("open-seal");
 const hero = document.querySelector(".hero");
 function openEnvelope() {
   if (!root.classList.contains("env-closed") || root.classList.contains("env-opening")) return;
-  if (CONFIG.song) audio.play().catch(() => {});
+  if (CONFIG.song) playSong();
   sealBtn.disabled = true;
   sealBtn.setAttribute("aria-label", "Invitación abierta");
   root.classList.add("env-opening");
