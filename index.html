@@ -140,12 +140,11 @@ p,h1,h2,h3{margin:0}
 .dot:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 /* long text */
-.story{font:500 12.5px/2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);max-width:24em;text-wrap:pretty}
 
 /* details */
 .details-box{padding:16px 16px 18px;display:flex;flex-direction:column;align-items:stretch;gap:12px;text-align:left}
 .arch{width:78%;margin:4px auto 6px;aspect-ratio:4/5;border-radius:999px 999px 10px 10px;overflow:hidden}
-.arch .photo-img{width:100%;height:100%}
+.arch img{width:100%;height:100%;object-fit:cover;display:block}
 .d-title{font:400 21px/1.2 var(--display)}
 .d-sub{font-size:15px;color:var(--muted);margin-top:-8px}
 .d-row{display:flex;align-items:center;gap:12px;font-size:15px}
@@ -343,20 +342,10 @@ p,h1,h2,h3{margin:0}
   </section>
   <div class="divider reveal" aria-hidden="true"><span>+</span></div>
 
-  <section class="sec" aria-label="Nuestra historia">
-    <div class="reveal"><svg class="icon" viewBox="0 0 120 110" aria-hidden="true">
-   <ellipse cx="60" cy="92" rx="44" ry="10" fill="#efd8dc" opacity=".55"/><path d="M20 90c6-18 20-26 40-26s34 8 40 26z" fill="#e6c7cc"/>
-   <path d="M30 88c4-10 12-14 20-14" stroke="#8c3445" stroke-width="2" fill="none"/>
-   <rect x="50" y="48" width="26" height="22" fill="#f1e2c7" stroke="#cdb48f"/><path d="M47 49l16-10 16 10z" fill="#d79c7c"/><rect x="58" y="58" width="6" height="12" fill="#c8a57e"/>
-   <path d="M38 76c-2-14 0-34 3-46c3 12 5 32 3 46z" fill="#7a2a3a"/><path d="M84 76c-2-12 0-28 3-38c3 10 5 26 3 38z" fill="#7a2a3a"/><path d="M93 80c-1-9 0-19 2-26c2 7 3 17 2 26z" fill="#8c3445"/>
-   <circle cx="30" cy="80" r="5" fill="#e9b8c6"/><circle cx="96" cy="84" r="4" fill="#f4dc8e"/><circle cx="72" cy="82" r="4" fill="#e9b8c6"/></svg></div>
-    <p class="story reveal">El código de vestimenta para el evento exige un estilo formal y elegante, donde las mujeres deben asistir con un vestido largo que llegue hasta el suelo en tonos pastel (como azul cielo, rosa viejo, verde menta o lavanda), quedando estrictamente prohibidos los colores blanco y rojo. Por su parte, los hombres deben portar obligatoriamente un traje completo de dos piezas (saco y pantalón a juego) en tonos oscuros como negro o azul marino, acompañado de una camisa de vestir de manga larga y corbata o pajarita indispensable.</p>
-  </section>
-
   <section class="sec" aria-label="Detalles del gran día">
     <h2 class="title reveal">Detalles del gran día</h2>
     <div class="box details-box reveal">
-      <div class="arch"><div class="photo-img"><svg class="photo-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="17" cy="19" r="3.5" fill="currentColor"/><path d="M8 35 19 24l8 7 5-5 8 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg></div></div>
+      <div class="arch"><img src="lugar.jpg" alt="Lagos Ranch de noche: palmeras con luces, el arco de piedra y el lago" width="546" height="683" loading="lazy" decoding="async"></div>
       <p class="d-title">Ubicación</p>
       <p class="d-sub">Lagos Ranch</p>
       <p class="d-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>17350 SW 236th St, Homestead, FL 33031</span></p>
