@@ -163,11 +163,17 @@ p,h1,h2,h3{margin:0}
 /* gifts */
 .heart-label{display:inline-flex;align-items:center;gap:6px}
 .heart-label svg{width:11px;height:11px;color:#c0394b}
-.gift-box{padding:18px 18px 16px;display:flex;flex-direction:column;gap:6px;text-align:left}
-.g-label{font:500 11px/1.4 var(--serif);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-.g-value{font-size:16px}
-.acct{border:1px solid #d9d0c0;border-radius:10px;background:#fffdf8;padding:11px 12px;font:500 15px/1.2 var(--serif);letter-spacing:.06em;margin:2px 0 4px;font-variant-numeric:tabular-nums}
-.g-note{font:italic 400 14px/1.4 var(--serif);color:var(--muted);margin-top:4px}
+.vh-text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.gift{width:100%;display:flex;flex-direction:column;align-items:flex-start;margin-top:30px}
+.gift-card{position:relative;width:78%;padding:44px 18px 24px;text-align:justify;text-align-last:left;font:500 14px/1.7 var(--serif);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.gift-seal{position:absolute;top:-32px;left:50%;width:64px;height:64px;transform:translateX(-50%) rotate(-8deg);filter:drop-shadow(0 3px 4px rgba(60,20,10,.4))}
+.gcap{font:400 2.5em/0 var(--script);text-transform:none;letter-spacing:0;color:var(--accent);vertical-align:-.18em;margin-right:.12em}
+.gift-btn{align-self:flex-end;margin-top:-26px;width:54%;aspect-ratio:1;border-radius:50%;border:0;background:var(--accent);color:#fff;box-shadow:0 18px 30px -14px rgba(60,10,20,.6);cursor:pointer;font:500 19px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;position:relative;z-index:1}
+.gift-btn .gcap{color:#fff;font-size:2.9em;margin-right:-.04em}
+.gift-btn small{display:block;margin-top:12px;font:italic 400 14px/1 var(--serif);letter-spacing:.02em;text-transform:none;opacity:.9}
+.gift-btn:focus-visible{outline:2px solid var(--accent-dark);outline-offset:4px}
+.gift-detail{margin-top:18px;padding:18px 20px;text-align:center;font-size:17px}
+.gift-detail strong{display:block;font:500 13px/1.4 var(--serif);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
 
 /* dress code */
 .dress-box{padding:18px 16px;display:flex;flex-direction:column;align-items:center;gap:14px}
@@ -374,17 +380,18 @@ p,h1,h2,h3{margin:0}
    <g fill="#c98d98"><ellipse cx="36" cy="54" rx="10" ry="4" transform="rotate(-30 36 54)"/><ellipse cx="84" cy="52" rx="10" ry="4" transform="rotate(28 84 52)"/><ellipse cx="60" cy="26" rx="8" ry="3.5" transform="rotate(-80 60 26)"/></g>
    <circle cx="46" cy="52" r="11" fill="#f2c9d0"/><circle cx="72" cy="50" r="11" fill="#f7e2e6"/><circle cx="60" cy="40" r="12" fill="#e9aab6"/><circle cx="58" cy="62" r="10" fill="#fbeff0"/><circle cx="76" cy="66" r="7" fill="#f2c9d0"/><circle cx="42" cy="66" r="7" fill="#f7e2e6"/>
    <g fill="none" stroke="#c98896" stroke-width="1" opacity=".7"><path d="M54 40c2-3 9-3 11 1M49 52c1-3 5-4 7-1M66 50c2-3 7-3 9 0"/></g></svg></div>
-    <p class="eyebrow heart-label reveal">Lluvia de cartas <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-8-5-8-11.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.8C20 16 12 21 12 21z"/></svg></p>
-    <h2 class="title reveal">Regalos</h2>
-    <div class="box gift-box reveal">
-      <p class="g-label">Banco</p>
-      <p class="g-value">Nombre del banco</p>
-      <p class="g-label">Titular de la cuenta</p>
-      <p class="g-value">Rachel &amp; Leo</p>
-      <p class="g-label">Cuenta bancaria</p>
-      <p class="acct" id="acct">0000 0000 0000 0000</p>
-      <button class="btn btn-solid" id="copy-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="8" width="11" height="12" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg><span>Copiar</span></button>
-      <p class="g-note">* ¡Incluye tu nombre como referencia para que sepamos a quién agradecer!</p>
+    <p class="eyebrow heart-label reveal">Lluvia de sobres <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-8-5-8-11.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.8C20 16 12 21 12 21z"/></svg></p>
+    <h2 class="vh-text">Regalos</h2>
+    <div class="gift reveal">
+      <div class="box gift-card">
+        <img class="gift-seal" src="sello-r.png" alt="" width="480" height="480">
+        <p><span class="gcap">S</span>u compañía es lo más importante. Si desean hacernos un obsequio, lo recibiremos con mucho cariño.</p>
+      </div>
+      <button class="gift-btn" id="gift-btn" type="button" aria-expanded="false" aria-controls="gift-detail" aria-label="Regalos: toca para ver los detalles"><span class="gcap">R</span>egalos<small>Toca para ver</small></button>
+    </div>
+    <div class="box gift-detail" id="gift-detail" hidden>
+      <strong>Lluvia de sobres</strong>
+      <p>El día de la boda habrá una caja para sobres en la recepción.</p>
     </div>
   </section>
   <div class="divider reveal" aria-hidden="true"><span>+</span></div>
@@ -558,13 +565,13 @@ dots.forEach(d => d.addEventListener("click", () => gallery.scrollTo({ left: Num
 const mapsBtn = document.getElementById("maps-btn");
 if (/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) mapsBtn.href = mapsBtn.dataset.apple;
 
-// Copiar la cuenta bancaria
-document.getElementById("copy-btn").addEventListener("click", async e => {
-  const label = e.currentTarget.querySelector("span");
-  const text = document.getElementById("acct").textContent.replace(/\s+/g, "");
-  try { await navigator.clipboard.writeText(text); label.textContent = "¡Copiado!"; }
-  catch { label.textContent = "Mantén presionado el número para copiarlo"; }
-  setTimeout(() => (label.textContent = "Copiar"), 2500);
+// Regalos: el círculo muestra los detalles
+const giftBtn = document.getElementById("gift-btn");
+const giftDetail = document.getElementById("gift-detail");
+giftBtn.addEventListener("click", () => {
+  const open = giftDetail.hidden;
+  giftDetail.hidden = !open;
+  giftBtn.setAttribute("aria-expanded", String(open));
 });
 
 // Volver arriba
