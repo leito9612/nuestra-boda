@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<script>(function(){var V="1791527386";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
+<script>(function(){var V="1791557378";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#6c1d2d">
@@ -452,11 +452,19 @@ section[id]{scroll-margin-top:62px}
 .dc-pal{width:100%}
 .dc-pal .dc-swatches{grid-template-columns:repeat(5,1fr);row-gap:14px}
 /* language switch */
-.lang{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;padding:3px;border-radius:999px;background:rgba(251,247,241,.92);border:1px solid var(--gold);box-shadow:0 6px 16px -8px rgba(60,20,30,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.lang button{min-width:40px;height:34px;border:0;border-radius:999px;background:none;color:var(--accent);font:600 13px/1 var(--serif);letter-spacing:.12em;cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--accent);color:#fbefe6}
-.lang button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-@media (prefers-reduced-motion:no-preference){.env-open .lang{animation:lang-in .6s ease-out .2s both}@keyframes lang-in{from{opacity:0;transform:translateY(10px)}}}
+/* language switch: on the white card that rises out of the envelope, and in the top menu */
+.lang{display:flex;padding:2px;border-radius:999px;background:#fffaf3;border:1px solid rgba(156,122,44,.7)}
+.lang button{min-width:40px;height:30px;padding:0 10px;border:0;border-radius:999px;background:none;color:var(--wine);font:600 13px/1 var(--serif);letter-spacing:.16em;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--wine);color:#fbefe6}
+.lang button:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+.card-orn{width:30%;height:1px;margin-top:2.4cqw;background:rgba(156,122,44,.55)}
+.lang-card{margin-top:2.6cqw;padding:.5cqw;box-shadow:0 3px 8px -4px rgba(60,20,30,.35)}
+.lang-card button{min-width:12cqw;height:8cqw;padding:0 2.6cqw;font-size:3.4cqw}
+.lang-menu{margin-top:10px;background:transparent;border-color:rgba(232,207,159,.6)}
+.lang-menu button{color:#f7eadf}
+.lang-menu button[aria-pressed="true"]{background:#f7eadf;color:#5a1222}
+html[lang="en"] .card-kicker{font-size:7.2cqw;line-height:1.15}
+@media (prefers-reduced-motion:no-preference){.env-open .lang-card{animation:lang-in .7s ease-out both}@keyframes lang-in{from{opacity:0;transform:translateY(6px)}}}
 </style>
 
 <script>document.documentElement.classList.add("env-closed");if(matchMedia("(prefers-reduced-motion: no-preference)").matches)document.documentElement.classList.add("js-motion")</script>
@@ -465,10 +473,12 @@ section[id]{scroll-margin-top:62px}
   <div class="cover-frame">
     <div class="env-layer env-photo" role="img" aria-label="Sobre color vino cerrado con un sello de cera dorado, sobre encaje y flores secas" data-en-aria-label="Closed wine-coloured envelope with a gold wax seal, on lace and dried flowers"></div>
     <div class="env-inside" aria-hidden="true"></div>
-    <div class="env-card" aria-hidden="true">
+    <div class="env-card">
       <p class="card-kicker" data-en="We&#x27;re getting married!">¡Nos casamos!</p>
       <p class="card-names">Rachel &amp; Leo</p>
       <p class="card-date">13 · 03 · 2027</p>
+      <span class="card-orn" aria-hidden="true"></span>
+      <div class="lang lang-card" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
     </div>
     <div class="env-layer env-pocket" aria-hidden="true"></div>
     <div class="env-layer env-flap" aria-hidden="true"></div>
@@ -487,6 +497,7 @@ section[id]{scroll-margin-top:62px}
 </header>
 <nav class="tb-menu" id="tb-menu" aria-label="Apartados" data-en-aria-label="Sections" hidden>
   <a href="#cuenta" data-en="Countdown">Cuenta regresiva</a><a href="#recuerdos" data-en="Our memories">Nuestros recuerdos</a><a href="#vestimenta" data-en="Dress code">Código de vestimenta</a><a href="#programa" data-en="Order of the day">Programa del día</a><a href="#regalos" data-en="Gifts">Regalos</a><a href="#detalles" data-en="The big day">Detalles del gran día</a><a href="#rsvp-sec" data-en="RSVP">Confirmar asistencia</a>
+<div class="lang lang-menu" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
 </nav>
 <main class="page">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cl-out" x1="0" y1="1" x2=".35" y2="0"><stop offset="0" stop-color="#2e0612"/><stop offset=".4" stop-color="#4f0e24"/><stop offset=".8" stop-color="#6e1835"/><stop offset="1" stop-color="#8a2548"/></linearGradient>
@@ -764,7 +775,6 @@ section[id]{scroll-margin-top:62px}
   </footer>
 </main>
 
-<div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
 <button class="sound" id="sound" type="button" aria-label="Pausar la música" aria-pressed="true">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path id="sound-icon" fill="currentColor" d="M4 9v6h4l5 4V5L8 9zm11.5 3a3.5 3.5 0 0 0-2-3.2v6.4a3.5 3.5 0 0 0 2-3.2zM13.5 4.2v2.1a6 6 0 0 1 0 11.4v2.1a8 8 0 0 0 0-15.6z"/></svg>
 </button>
