@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<script>(function(){var V="1791649986";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
+<script>(function(){var V="1791650066";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#6c1d2d">
@@ -454,12 +454,12 @@ section[id]{scroll-margin-top:62px}
 /* language switch */
 /* language switch: on the white card that rises out of the envelope, and in the top menu */
 .lang{display:flex;padding:2px;border-radius:999px;background:#fffaf3;border:1px solid rgba(156,122,44,.7)}
-.lang button{min-width:40px;height:30px;padding:0 10px;border:0;border-radius:999px;background:none;color:var(--wine);font:600 13px/1 var(--serif);letter-spacing:.16em;cursor:pointer}
+.lang button{min-width:40px;height:30px;padding:0 12px;border:0;border-radius:999px;background:none;color:var(--wine);font:600 14px/1 var(--serif);letter-spacing:.04em;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--wine);color:#fbefe6}
 .lang button:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
 .card-orn{width:24%;height:1px;margin-top:2cqw;background:rgba(156,122,44,.55)}
 .lang-card{margin-top:2cqw;padding:.35cqw;box-shadow:0 2px 6px -3px rgba(60,20,30,.3)}
-.lang-card button{min-width:6.6cqw;height:4.6cqw;padding:0 1.4cqw;font-size:2.2cqw;letter-spacing:.12em}
+.lang-card button{min-width:6.6cqw;height:4.8cqw;padding:0 2cqw;font-size:2.5cqw;letter-spacing:.03em}
 .lang-menu{margin-top:10px;background:transparent;border-color:rgba(232,207,159,.6)}
 .lang-menu button{color:#f7eadf}
 .lang-menu button[aria-pressed="true"]{background:#f7eadf;color:#5a1222}
@@ -542,7 +542,7 @@ html[lang="en"] .card-kicker{font-size:6.2cqw;line-height:1.15}
       <p class="card-names">Leo &amp; Rachel</p>
       <p class="card-date">13 · 03 · 2027</p>
       <span class="card-orn" aria-hidden="true"></span>
-      <div class="lang lang-card" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <div class="lang lang-card" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" lang="es" aria-pressed="true">Español</button><button type="button" data-lang="en" lang="en" aria-pressed="false">English</button></div>
     </div>
     <div class="env-layer env-pocket" aria-hidden="true"></div>
     <div class="env-layer env-flap" aria-hidden="true"></div>
@@ -563,7 +563,7 @@ html[lang="en"] .card-kicker{font-size:6.2cqw;line-height:1.15}
 </header>
 <nav class="tb-menu" id="tb-menu" aria-label="Apartados" data-en-aria-label="Sections" hidden>
   <a href="#cuenta" data-en="Countdown">Cuenta regresiva</a><a href="#recuerdos" data-en="Our memories">Nuestros recuerdos</a><a href="#vestimenta" data-en="Dress code">Código de vestimenta</a><a href="#programa" data-en="Order of the day">Programa del día</a><a href="#regalos" data-en="Gifts">Regalos</a><a href="#detalles" data-en="The big day">Detalles del gran día</a><a href="#rsvp-sec" data-en="RSVP">Confirmar asistencia</a>
-<div class="lang lang-menu" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+<div class="lang lang-menu" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" lang="es" aria-pressed="true">Español</button><button type="button" data-lang="en" lang="en" aria-pressed="false">English</button></div>
 </nav>
 <main class="page">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cl-out" x1="0" y1="1" x2=".35" y2="0"><stop offset="0" stop-color="#2e0612"/><stop offset=".4" stop-color="#4f0e24"/><stop offset=".8" stop-color="#6e1835"/><stop offset="1" stop-color="#8a2548"/></linearGradient>
