@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<script>(function(){var V="1791653108";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
+<script>(function(){var V="1791653236";try{fetch("version.txt?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=t.trim();if(/^\d+$/.test(t)&&t>V&&new URLSearchParams(location.search).get("v")!==t)location.replace(location.pathname+"?v="+t+location.hash)}).catch(function(){})}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#6c1d2d">
@@ -154,9 +154,6 @@ p,h1,h2,h3{margin:0}
 .v-ic svg{width:18px;height:18px}
 .v-photo{position:relative;display:block;aspect-ratio:1.3;border-radius:14px;overflow:hidden;box-shadow:0 10px 18px -10px rgba(40,10,20,.5)}
 .v-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.v-pin{position:absolute;left:51.5%;top:47%;width:26px;translate:-50% -100%;filter:drop-shadow(0 3px 3px rgba(0,0,0,.35))}
-.v-pin svg{display:block;width:100%;height:auto}
-.v-pin::after{content:"";position:absolute;left:50%;top:100%;width:14px;height:5px;margin:-3px 0 0 -7px;border-radius:50%;background:rgba(108,29,45,.55)}
 .v-btn{width:100%;box-sizing:border-box;font:600 12.5px/1 var(--serif);letter-spacing:.15em;white-space:nowrap;text-transform:uppercase;padding:16px 18px;margin-top:10px}
 .v-btn:first-of-type{margin-top:0}
 .btn-line.v-btn{color:var(--accent);border-color:var(--accent)}
@@ -287,10 +284,6 @@ p,h1,h2,h3{margin:0}
   @keyframes cg-rise{0%{opacity:0;transform:translateY(0)}12%{opacity:.95}85%{opacity:.85}100%{opacity:0;transform:translateY(-57px)}}
   @keyframes cg-glow{from{opacity:.45}to{opacity:1}}
   @keyframes cg-twinkle{0%,100%{opacity:.2;scale:.6}50%{opacity:1;scale:1.15}}
-  .js-motion .venue-card.in .v-pin{animation:pin-drop .9s cubic-bezier(.3,1.4,.5,1) .5s both}
-  .js-motion .venue-card.in .v-pin::after{animation:pin-pulse 2.2s ease-out 1.4s infinite}
-  @keyframes pin-drop{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
-  @keyframes pin-pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}100%{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
   .hero.show .hero-text .fade:nth-child(1){transition-delay:.7s}
   .hero.show .hero-text .fade:nth-child(2){transition-delay:.95s}
   .hero.show .hero-text .fade:nth-child(3){transition-delay:1.2s}
